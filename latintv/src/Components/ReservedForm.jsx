@@ -1,22 +1,23 @@
 import React, {useState , useEffect} from 'react'
 import { Link } from 'react-router-dom';
-import addNewSpace from '../firebase/firestore'
+import { addNewSpace, getUser} from '../firebase/firestore'
 
 export default function ReservedForm() {
+    //states
     const [ newSpace , setNewSpace] = useState({
          date : '' , 
-         program: '', 
          reservedHour: '' , 
-         product :''
+         products :[]
     });
-    
-    // const sendDataToVerify = () => {
-    //     history.push({
-    //         pathname: '/verifica-tu-reserva',
-    //         state: newSpace,
-    //    });
-    // }
-    
+    //variables
+
+    const userId = 'A27rshHeq0eZGB7aJZnB';
+    getUser(userId).then((user) => setNewSpace(prevState => ({
+        ...prevState,
+        products: user.products
+      })));
+
+    //functions
     const handleInputChange = event => {
         const { name, value } = event.target;
         setNewSpace(prevState => ({
@@ -34,7 +35,9 @@ export default function ReservedForm() {
             </div>
             <form>
                 <label for="producto">Nombre del anunciante</label>
-                <input placeholder='Producto' name="product" onChange={handleInputChange}></input>
+                <select name="product" onChange={handleInputChange}>
+    {(newSpace.products).map((product) => <option value={product}>{product}</option>)}
+                </select>
                 <label for="program">Nombre del programa</label>
                 <input placeholder='Programa' name="program" onChange={handleInputChange}></input>
                 <div>

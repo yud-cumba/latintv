@@ -15,6 +15,11 @@ export const getData = (collectionName, callback) => db.collection(collectionNam
     return data
   });
 
+export const getUser = (id) => db.collection('users').doc(id)
+.get()
+.then((doc) =>  {
+  return doc.data();
+});
 
 export const addNewSpace = (userId, programId, reservedHour, date) => db.collection('reservedSpaces').add({
   userId,
