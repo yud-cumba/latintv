@@ -2,7 +2,6 @@ import React from 'react'
 import { Calendar, Views, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-import './Calendar.scss'
 //import Prueba from './Prueba.jsx'
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);

@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import Home from './Pages/Home'
 import ChatBotLatin from './Components/ChatBotLatin'
-import { Calendar } from 'react-big-calendar';
+import MyCalendar from './Components/Calendar';
 
 const App = () => {
   return (
@@ -12,12 +12,12 @@ const App = () => {
       <Switch>
         <Route exact path="/">
             <Home />
-          </Route>
+        </Route>
         <Route path="/chatbot">
             <ChatBotLatin />
         </Route>
         <Route path="/calendar">
-            <Calendar />
+            <MyCalendar/>
         </Route>
       </Switch>
       {/* { isLogin && <Redirect to="/home" />} */}
