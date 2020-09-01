@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
 import Home from './Pages/Home'
+import Login from './Pages/Login';
 import ChatBotLatin from './Components/ChatBotLatin'
 import MyCalendar from './Components/Calendar';
 
@@ -12,6 +13,9 @@ const App = () => {
       <Switch>
         <Route exact path="/">
             <Home />
+        </Route>
+        <Route path="/login">
+            <Login/>
         </Route>
         <Route path="/chatbot">
             <ChatBotLatin />

@@ -2,16 +2,16 @@
 // import 'firebase/firebase-firestore'
 
 // const firebaseConfig = {
-//       apiKey: "AIzaSyCyUxh3iRWoypvbXc-waQw7Dd7pqG6y5pI",
-//       authDomain: "burgerqueen-9fc96.firebaseapp.com",
-//       databaseURL: "https://burgerqueen-9fc96.firebaseio.com",
-//       projectId: "burgerqueen-9fc96",
-//       storageBucket: "burgerqueen-9fc96.appspot.com",
-//       messagingSenderId: "80737932251",
-//       appId: "1:80737932251:web:073968cf16de68bae64dfe",
-//       measurementId: "G-8H7Q6BL642"
-//     };
-
+//     apiKey: "AIzaSyCBgxXiIsOlHZs4BPXGWNRgjo-QG1g8Sio",
+//     authDomain: "latin-tv-7a134.firebaseapp.com",
+//     databaseURL: "https://latin-tv-7a134.firebaseio.com",
+//     projectId: "latin-tv-7a134",
+//     storageBucket: "latin-tv-7a134.appspot.com",
+//     messagingSenderId: "566056602462",
+//     appId: "1:566056602462:web:2e2e7ddf561665a45b9dcf",
+//     measurementId: "G-Q7NDZD999K"
+//   };
+// Initialize Firebase
 // firebase.initializeApp(firebaseConfig);
 // const db = firebase.firestore();
 
