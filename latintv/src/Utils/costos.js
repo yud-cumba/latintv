@@ -1,11 +1,12 @@
-const baseCost = (categorie) => {
+const baseCost = (categorie , extra , recognize) => {
+    const prices = (recognize)? [3200,4200,7200] : [ 3000, 4000, 7000]
     switch(categorie) {
         case 'regular':
-            return 3000;
+            return prices[0];
         case 'prime':
-            return 4000 ;
+            return prices[1];
         case 'super-prime':
-            return 7000;
+            return prices[2];
     }
 }
 
