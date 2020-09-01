@@ -1,5 +1,5 @@
 const baseCost = (categorie , extra , recognize) => {
-    const prices = (recognize)? [3200,4200,7200] : [ 3000, 4000, 7000]
+    const prices = (recognize)? [3200,4200,7200] : [ 3000, 4000, 7000];
     switch(categorie) {
         case 'regular':
             return prices[0];
