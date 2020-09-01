@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .saludo{
     width: 80%;
@@ -15,6 +16,8 @@ body{
 .containerSectionCategory{
     width: 30%;
 }
+.containerSectionCategory:hover .imageCategory {-webkit-transform:scale(1.1);transform:scale(1.1);}
+.containerSectionCategory {overflow:hidden;}
 .imageCategory{
     width: 90%;
     height: 70%;

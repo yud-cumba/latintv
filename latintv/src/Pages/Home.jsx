@@ -7,7 +7,7 @@ const Home = () => {
     return(
         <div className='containerHome'>
             <Header/>
-            <section className='saludo'>Bienvenido (a) a Latin TV</section>
+            <section className=''></section>
             <div className='containerCategory'>
                 <section className='containerSectionCategory'>
                     <img className='imageCategory' src='https://www.eltiempo.com/files/image_950_534/uploads/2019/11/15/5dcf255dc36d4.jpeg' alt=''/>
