@@ -3,16 +3,21 @@ import {
   BrowserRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
 import Home from './Pages/Home'
+import ChatBotLatin from './Components/ChatBotLatin'
+import { Calendar } from 'react-big-calendar';
 
 const App = () => {
   return (
     <Router>
       <Switch>
-      <Route exact path="/">
-          <Home />
+        <Route exact path="/">
+            <Home />
+          </Route>
+        <Route path="/chatbot">
+            <ChatBotLatin />
         </Route>
-        <Route path="/home">
-          <Home />
+        <Route path="/calendar">
+            <Calendar />
         </Route>
       </Switch>
       {/* { isLogin && <Redirect to="/home" />} */}
