@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+.saludo{
+    width: 80%;
+    font-size: 2rem;
+    padding: 3% 0 3% 10%;
+}
+.containerCategory{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.containerSectionCategory{
+    width: 30%;
+}
+.imageCategory{
+    width: 90%;
+    height: 70%;
+}
+.nameCategory{
+    width: 100%;
+    font-size: 1rem;
+    // display: flex;
+    // justify-content: center;
+}
+.elegirCaregoria{
+    text-align: center;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
