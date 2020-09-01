@@ -5,7 +5,9 @@ const  VerifyPage = prop => {
     program, 
     reservedHour , 
     product} = (prop.location && prop.location.state) || {};
-    console.log(product);
+    
+
+
     return (
         <div>
            <div>
@@ -17,6 +19,7 @@ const  VerifyPage = prop => {
                 <h1>{product}</h1>
             <div>
                  <button >Editar Reserva</button>
+                 <button >Aplicar Reserva</button>
             </div>
         </div>
     )

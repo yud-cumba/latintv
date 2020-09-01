@@ -1,12 +1,6 @@
 import db from '../ConexionFirebase';
 
-export const getMyReservedSpaces = (id) => db.collection('reservedSpaces').doc(id)
-.get()
-.then((doc) =>  {
-  return doc.data();
-});
-
-export const getData = (collectionName, callback) => db.collection(collectionName)
+export const getData = (collectionName) => db.collection(collectionName)
   .onSnapshot((docs) => {
     const data = [];
     docs.forEach((doc) => {
@@ -14,7 +8,32 @@ export const getData = (collectionName, callback) => db.collection(collectionNam
     });
     return data
   });
+  export const getAllData = (callback, collectionName) => db.collection(collectionName)
+  .onSnapshot((docs) => {
+    const data = [];
+    docs.forEach((doc) => {
+      data.push({ id: doc.id, ...doc.data() });
+    });
+    callback(data);
+  });
 
+export const getUser = (id) => db.collection('users').doc(id)
+.get()
+.then((doc) =>  {
+  return doc.data();
+});
+
+export const getTvProgram = (id) => db.collection('tvprograms').doc(id)
+.get()
+.then((doc) =>  {
+  return doc.data();
+});
+
+export const getReservedSpace = (id) => db.collection('tvprograms').doc(id)
+.get()
+.then((doc) =>  {
+  return doc.data();
+});
 
 export const addNewSpace = (userId, programId, reservedHour, date) => db.collection('reservedSpaces').add({
   userId,

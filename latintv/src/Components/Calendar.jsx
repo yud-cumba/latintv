@@ -3,7 +3,7 @@ import { Calendar, Views, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
-import {getData, getMyReservedSpaces} from '../firebase/firestore'
+import {getData, getReservedSpace} from '../firebase/firestore'
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
@@ -44,7 +44,7 @@ export default function MyCalendar() {
     console.log('firebase');
     // getData('users');
 
-    getMyReservedSpaces('BxwCQ27l8SXsYBnQdgk6').then((users) => console.log(users));
+    getReservedSpace('BxwCQ27l8SXsYBnQdgk6').then((users) => console.log(users));
     return (
         <div>
              <Calendar
