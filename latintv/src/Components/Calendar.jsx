@@ -3,8 +3,7 @@ import { Calendar, Views, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
-import {getData} from '../firebase/firestore'
-//import Prueba from './Prueba.jsx'
+import {getData, getMyReservedSpaces} from '../firebase/firestore'
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
@@ -12,6 +11,7 @@ const localizer = momentLocalizer(moment);
 // views:
 //{MONTH: "month", WEEK: "week", WORK_WEEK: "work_week", DAY: "day", AGENDA: "agenda"}
 //array de eventos
+
 const myEventsList= [{
     title: 'today',
     start: new Date('2020-08-31 10:22:00'),
@@ -42,7 +42,9 @@ const myEventsList= [{
   
 export default function MyCalendar() {
     console.log('firebase');
-    getData('users');
+    // getData('users');
+
+    getMyReservedSpaces('BxwCQ27l8SXsYBnQdgk6').then((users) => console.log(users));
     return (
         <div>
              <Calendar
