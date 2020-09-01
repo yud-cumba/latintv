@@ -1,2 +1,7 @@
-import firebase from 'firebase/app';
-import db from '../conexionFirebase';
+import db from '../ConexionFirebase';
+
+export const getMyReservedSpaces = (id) => db.collection('reservedSpaces').doc(id)
+.get()
+.then((doc) => {
+  console.log(doc);
+});
