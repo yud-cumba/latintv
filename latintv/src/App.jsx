@@ -5,6 +5,7 @@ import {
 import Home from './Pages/Home'
 import ChatBotLatin from './Components/ChatBotLatin'
 import MyCalendar from './Components/Calendar';
+import ReservedPage from './Pages/ReservedPage';
 
 const App = () => {
   return (
@@ -18,6 +19,9 @@ const App = () => {
         </Route>
         <Route path="/calendar">
             <MyCalendar/>
+        </Route>
+        <Route path="/reserva">
+            <ReservedPage/>
         </Route>
       </Switch>
       {/* { isLogin && <Redirect to="/home" />} */}
