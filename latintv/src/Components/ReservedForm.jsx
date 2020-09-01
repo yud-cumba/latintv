@@ -60,10 +60,13 @@ export default function ReservedForm() {
                 Reserva su publicidad
             </div>
             <form>
-                <label for="producto">Nombre del anunciante</label>
-                <select name="product" onChange={handleInputChange}>
+                <label for="product">Nombre del anunciante</label>
+                {/* <select name="product" onChange={handleInputChange}>
                    {(newSpace.products).map((product) => <option value={product}>{product}</option>)}
-                </select>
+                </select> */}
+                <input placeholder='Producto' name="product" onChange={(e) => {
+                    handleInputChange(e)
+                    }}></input>
                 <label for="program">Nombre del programa</label>
                 <input placeholder='Programa' name="program" onChange={(e) => {
                     handleInputChange(e)
