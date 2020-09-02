@@ -32,9 +32,9 @@ const  VerifyPage = prop => {
                     <aside id="modal" className="modal">
                         <div className="content-modal">
                             <header className="modal-header">
-                                <a href='#' className="close-modal">X</a>
+                            <p>Verifique los datos cargados</p>
+                            <a href='#' className="close-modal">X</a>
                             </header>
-                            Verifique los datos cargados
                             <h1>{date}</h1>
                             <h1>{program}</h1>
                             <h1>{reservedHour}</h1>

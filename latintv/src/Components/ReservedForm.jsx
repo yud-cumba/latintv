@@ -5,7 +5,7 @@ import './styles/Reservedform.scss'
 import currentDate from '../Utils/currentDate';
 import InputCalendar from './InputCalendar';
 import weekToNumber from '../Utils/weekConverter'
-import getDay from "date-fns/getDay";
+import getDay from 'date-fns/getDay';
 
 
 export default function ReservedForm() {
