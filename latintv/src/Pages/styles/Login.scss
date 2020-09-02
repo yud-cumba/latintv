@@ -1,5 +1,5 @@
-@import "../../global-sass/index.scss";
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import "../../global-sass/_estilosCompartidos.scss";
+@import "../../global-sass/variables.scss";
 *{
     font-family: 'Open Sans', sans-serif;
 }
@@ -65,11 +65,7 @@
     text-align: center;
 }
 .login-form{
-    margin: 0px;
     box-sizing: border-box;
-    padding-top: 20px;
-    padding-left: 95px;
-    padding-right: 95px;
     font-size: 10px;
     color:$blue;
 }

@@ -1,7 +1,7 @@
 @import '../../global-sass/estilosCompartidos';
 @import '../../global-sass/variables.scss';
 
-header{
+.containerHeader{
     @include definirAnchoAlto(100%, 60px);
     background: $blue;
     display: flex;
