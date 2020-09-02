@@ -1,11 +1,11 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
 .containerFooter{
-    width: 100%;
-    height: 90px;
-    background: #003459;
-    color: #ffffff;
+    @include definirAnchoAlto(100%, 90px);
+    @include definirColores($blue, $white);
     font-size: 0.8rem;
-    display: flex;
-    justify-content: center;
+    @include justifyContent(center);
     margin-top: 1%;
 }
 .divLatin{
@@ -13,12 +13,10 @@
 }
 .divTerminos{
     width: 35%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
+    @include textAling(center);
+    @include centradoTotal;
 }
 .divPoliticas{
     width: 30%;
-    text-align: right;
+    @include textAling(right);
 }

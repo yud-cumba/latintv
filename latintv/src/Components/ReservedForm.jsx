@@ -54,35 +54,44 @@ export default function ReservedForm() {
 
     return (
         <div className='containerForm'>
-            <div>
-                Reserva su publicidad
+            <div className='divheaderForm'>
+                <div className='containerLogoForm'>Latin TV</div>
+                <div>Reserva su publicidad</div>
             </div>
             <form>
-                <label for="product">Nombre del anunciante</label>
-                {/* <select name="product" onChange={handleInputChange}>
-                   {(newSpace.products).map((product) => <option value={product}>{product}</option>)}
-                </select> */}
-                <input placeholder='Producto' name="product" onChange={handleInputChange}></input>
-                <label for="program">Nombre del programa</label>
-                <input placeholder='Programa' name="program" onChange={handleInputChange}></input>
-                <div>
-                    <input type="date" name="date" onChange={handleInputChange}></input>
-                    <select name="reservedHour" onChange={handleInputChange}>
-                       {availableHours.map((hours) => <option value={hours}>
-                           {`(${hours[0]}-${hours[1]})`}
-                        </option>)}
-                    </select>
+                <div className='inputProduct'>
+                    <label for="product" className='nameInput'>Nombre del anunciante</label>
+                    <input placeholder='Producto' name="product" onChange={handleInputChange}></input>                        
                 </div>
-                <Link
-                    to={{
-                        pathname: "/verifica-tu-reserva",
-                        state: newSpace,
-                    }}
-                >
-                Verificar Reserva
-                </Link>
-                 <button >Cancelar</button>
+                <div className='inputProgram'>
+                    <label for="program" className='nameInput'>Nombre del programa</label>
+                    <input placeholder='Programa' name="program" onChange={handleInputChange}></input>                        
+                </div>
+                <div className='nameInput'>La selección de fecha debe ser posterior  al día que se solicita la reserva</div>
+                <div className='selecFecha'>
+                    <div><input type="date" name="date" onChange={handleInputChange}></input></div>
+                    <div>
+                        <select name="reservedHour" onChange={handleInputChange}>
+                            {availableHours.map((hours) => <option value={hours}>
+                                {`(${hours[0]}-${hours[1]})`}
+                            </option>)}
+                        </select>
+                    </div>
+                </div>
             </form>
+            <div>
+                <div>
+                    <Link
+                        to={{
+                            pathname: "/verifica-tu-reserva",
+                            state: newSpace,
+                        }}
+                    >
+                    Verificar Reserva
+                    </Link>                    
+                </div>
+                <div><button >Cancelar</button></div>            
+            </div>
         </div>
     )
 }

@@ -1,13 +1,14 @@
+@import '../../global-sass/estilosCompartidos.scss';
+@import '../../global-sass/variables.scss';
+
 body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 .containerCategory{
-    width: 100%;
-    height: 100%;
+    @include definirAnchoAlto(100%, 100%);
     margin: 2% 0 2% 0;
-    display: flex;
-    justify-content: center;
+    @include justifyContent(center);
 }
 .containerSectionCategory{
     width: 33%;
@@ -15,26 +16,23 @@ body{
 .containerSectionCategory:hover{-webkit-transform:scale(1.1);transform:scale(1.1);}
 .containerSectionCategory {overflow:hidden;}
 .imageCategory{
-    width: 100%;
-    height: 100%;
+    @include definirAnchoAlto(100%, 100%);
 }
 .nameCategory{
     width: 95%;
     font-size: 1rem;
     margin-top: -30%;
-    text-align: right;
-    
+    @include textAling(right);
 }
 .category{
-    color: #ffffff;
+    color: $white;
     font-size: 1.3rem;
     font-weight: bold;
 }
 .selectCaregory{
     padding: 2%;
     border-radius: 10px;
-    background: #ff4242;
-    color: #ffffff;
+    @include definirColores($orange, $white);
     font-size: 1rem;
 }
 a:link, a:visited, a:active {
@@ -42,12 +40,12 @@ a:link, a:visited, a:active {
 }
 .Containersaludo{
     width: 96%;
-    background: #33A9CA;
+    background: $skyblue;
     padding: 0.5% 2% 2% 2%;
 }
 .sectionSaludo{
-    text-align: center;
-    color: #003459;
+    @include textAling(center);
+    color: $blue;
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -55,13 +53,12 @@ a:link, a:visited, a:active {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    color: #ffffff;
+    color: $white;
 }
 .sectionValues{
     width: 70%;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-around;
+    color: $white;
+    @include justifyContent(space-around);
     margin-left: auto;
     margin-right: auto;
 }
