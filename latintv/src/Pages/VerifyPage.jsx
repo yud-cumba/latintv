@@ -19,6 +19,9 @@ const  VerifyPage = prop => {
             history.push('/calendar');
           }, 2000);
     }
+    function editReserve (){
+        console.log('Editar ')
+    }
 
     return (
         <div>
@@ -29,7 +32,7 @@ const  VerifyPage = prop => {
                 <h1>{program}</h1>
                 <h1>{reservedHour}</h1>
             <div>
-                 <button >Editar Reserva</button>
+                 <button onClick={editReserve}>Editar Reserva</button>
                  <button onClick={reserveSpace}>Aplicar Reserva</button>
             </div>
         </div>

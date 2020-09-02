@@ -57,6 +57,7 @@ export const addSpaceToUser = (newSpaceId , userId) =>{
       reservedSpacesId: value,
     }))
 };
+
 // export const logIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
 // export const logOut = (email, password) => firebase.auth().signOut()
