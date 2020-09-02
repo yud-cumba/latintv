@@ -1,0 +1,48 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
+.containerForm{
+    @include definirAnchoAlto(35%, 60%);
+    // padding: 2%;
+    background: $white;
+    border-radius: 15px;
+}
+.divheaderForm{
+    @include definirAnchoAlto(100%, 25%);
+    @include definirColores($skyblue, $white);
+    border-radius: 15px 15px 0 0;
+    @include justifyContent(center);
+    flex-direction: column;
+    align-items: center;
+}
+.containerLogoForm{
+    width: auto;
+    background: $orange;
+    font-size: 1.2rem;
+    @include justifyContent(center);
+    padding: 1%;
+    margin-bottom: 2%;
+}
+form{
+    @include definirAnchoAlto(90%, 55%);
+    @include justifyContent(center);
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nameInput{
+    color: $blue;
+    font-size: 0.5rem;
+}
+.inputProduct, .inputProgram{
+    height: 25%;
+}
+.nameInput{
+    height: 10%;
+}
+.selecFecha{
+    height: 40%;
+    @include flexDirection(row);
+}
+// 20%

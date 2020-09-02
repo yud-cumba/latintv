@@ -1,0 +1,22 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
+.containerFooter{
+    @include definirAnchoAlto(100%, 90px);
+    @include definirColores($blue, $white);
+    font-size: 0.8rem;
+    @include justifyContent(center);
+    margin-top: 1%;
+}
+.divLatin{
+    width: 30%;
+}
+.divTerminos{
+    width: 35%;
+    @include textAling(center);
+    @include centradoTotal;
+}
+.divPoliticas{
+    width: 30%;
+    @include textAling(right);
+}

@@ -1,39 +1,33 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
 header{
-    width: 100%;
-    height: 60px;
+    @include definirAnchoAlto(100%, 60px);
+    background: $blue;
     display: flex;
-    background: #003459;
 }
 .containerLogo{
-    width: 10%;
-    height: 100%;
-    background: #ffffff;
-    color: #003459;
+    @include definirAnchoAlto(10%, 100%);
+    @include definirColores($orange, $white);
     font-size: 1.2rem;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
+    @include justifyContent(center);
 }
 .containerIniciarSesion{
     width: 90%;
-    display: flex;
-    justify-content: flex-end;
+    @include justifyContent(flex-end);
 }
 .linkHome{
     font-size: 1rem;
-    color: #ffffff;
+    color: $white;
 }
 .preguntasFrecuentes{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    justify-items: center;
+    @include definirAnchoAlto(20%, 100%);
+    @include justifyItems(center);
 }
 .iniciarSesion{
-    width: 10%;
-    height: 100%;
-    display: flex;
-    justify-items: center;
+    @include definirAnchoAlto(10%, 100%);
+    @include justifyItems(center);
 }
 a:link, a:visited, a:active {
     text-decoration:none;

@@ -18,7 +18,7 @@ const App = () => {
       <Switch>
         <Route exact path="/"><Home /></Route>
         <Route exact path="/CategoriaRegular"><CategoriaRegular/></Route>
-        <Route exact path="/CategoriaPrime"><CategoriaRegular/></Route>
+        <Route exact path="/CategoriaPrime"><CategoriaPrime/></Route>
         <Route exact path="/CategoriaSuperPrime"><CategoriaSuperPrime/></Route>
         <Route exact path="/login"><Login /></Route>
         <Route exact path="/chatbot"><ChatBotLatin /></Route>
