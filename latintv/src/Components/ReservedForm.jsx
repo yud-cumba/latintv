@@ -1,6 +1,6 @@
 import React, {useState , useEffect} from 'react'
 import { Link } from 'react-router-dom';
-import {getReservedSpac, addNewSpace, getUser, getAllData} from '../firebase/firestore'
+import {getAllData} from '../firebase/firestore'
 
 export default function ReservedForm() {
     //states

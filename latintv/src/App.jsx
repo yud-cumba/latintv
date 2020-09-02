@@ -5,12 +5,12 @@ import {
 import Home from './Pages/Home'
 import Login from './Pages/Login';
 import ChatBotLatin from './Components/ChatBotLatin'
-import MyCalendar from './Components/Calendar';
 import ReservedPage from './Pages/ReservedPage';
 import CategoriaRegular from './Pages/CategoriaRegular'
 import CategoriaPrime from './Pages/CategoriaPrime'
 import CategoriaSuperPrime from './Pages/CategoriaSuperPrime'
 import VerifyPage from './Pages/VerifyPage';
+import Calendar from './Pages/Calendar';
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
         <Route exact path="/CategoriaSuperPrime"><CategoriaSuperPrime/></Route>
         <Route exact path="/login"><Login /></Route>
         <Route exact path="/chatbot"><ChatBotLatin /></Route>
-        <Route exact path="/calendar"><MyCalendar/></Route>
+        <Route exact path="/calendar" component={Calendar}></Route>
         <Route exact path="/reserva" component ={ReservedPage} ></Route>
         <Route exact path="/verifica-tu-reserva" component= {VerifyPage}></Route>
       </Switch>

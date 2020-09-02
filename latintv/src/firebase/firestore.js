@@ -29,18 +29,34 @@ export const getTvProgram = (id) => db.collection('tvprograms').doc(id)
   return doc.data();
 });
 
-export const getReservedSpace = (id) => db.collection('tvprograms').doc(id)
+export const getReservedSpace = (id) => db.collection('reservedSpaces').doc(id)
 .get()
 .then((doc) =>  {
   return doc.data();
 });
 
-export const addReservedSpace = (userId, programId, reservedHour, date) => db.collection('reservedSpaces').add({
+export const addReservedSpace = (userId, programId, programName, reservedHour, date) => db.collection('reservedSpaces').add({
   userId,
   programId,
+  programName,
   reservedHour,
   date,
 });
+
+export const updateData = (collection, docId, field, value) => db.collection(collection).doc(docId).update({
+    [field]: value,
+  });
+export const addSpaceToUser = (newSpaceId , userId) =>{
+  getUser(userId)
+    .then((user) => user.reservedSpacesId)
+    .then((spacesId) => {
+      spacesId.push(newSpaceId)
+      return spacesId
+    })
+    .then((value) => db.collection('users').doc(userId).update({
+      reservedSpacesId: value,
+    }))
+};
 // export const logIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
 // export const logOut = (email, password) => firebase.auth().signOut()

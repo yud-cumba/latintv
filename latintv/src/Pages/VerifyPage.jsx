@@ -1,7 +1,9 @@
 import React from 'react'
-import { addReservedSpace } from '../firebase/firestore'
+import { useHistory } from 'react-router-dom';
+import { addReservedSpace, addSpaceToUser } from '../firebase/firestore'
 
 const  VerifyPage = prop => {
+    let history = useHistory();
     const {date , 
     programId, 
     reservedHour, program} = (prop.location && prop.location.state) || {};
@@ -9,7 +11,13 @@ const  VerifyPage = prop => {
     const userId = 'A27rshHeq0eZGB7aJZnB';
     function reserveSpace (){
         alert('añadido con exito');
-        addReservedSpace(userId, programId, reservedHour.split(','), date);
+        addReservedSpace(userId, programId,program, reservedHour.split(','), date)
+        .then((data) => {
+            addSpaceToUser(data.id, userId )
+        });
+        setTimeout(() => { 
+            history.push('/calendar');
+          }, 2000);
     }
 
     return (
