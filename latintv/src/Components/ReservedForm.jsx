@@ -6,6 +6,7 @@ import currentDate from '../Utils/currentDate';
 import InputCalendar from './InputCalendar';
 import weekToNumber from '../Utils/weekConverter'
 import getDay from "date-fns/getDay";
+import InputPredictive from './InputPredictive';
 
 
 export default function ReservedForm() {
@@ -19,6 +20,8 @@ export default function ReservedForm() {
     const [programId, setProgramId] =useState('');
     const [availableHours, setAvailableHours] = useState([]);
     const [availableDays, setAvailableDays] = useState([]);
+    const [allPrograms, setAllPrograms] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
     //variables
 
     
@@ -35,7 +38,13 @@ export default function ReservedForm() {
         const userId = 'A27rshHeq0eZGB7aJZnB';
         // document.getElementById('calendar').setAttribute('min', currentDate);
         // document.getElementById('calendar').setAttribute('value', currentDate);
+        getUser(userId)
+            .then((user) => {
+                setAllProducts((user.products).map(product => ({ id: product, label: product})));
+            });
+
         getAllData((programs) => {
+            setAllPrograms(programs.map(program => ({ id: program.nombre, label: program.nombre})));
             const programTv = programs.filter((program) => program.nombre === newSpace.program);
             const programTvId = (programTv.length>0)? programTv[0].id : 0;
             //console.log(programTv);
@@ -44,12 +53,12 @@ export default function ReservedForm() {
             setAvailableDays(days);
             const horario = (programTv.length>0)? programTv[0].horario : [0,1];
             const numberIntervales = (horario[1]-horario[0])*6;
-            const hours = (Array.from(Array(numberIntervales).keys())).map((i) => {
-                const inicio = `${horario[0]}:${i*10}`;
-                const final = ((i+1)*10%60===0 && i*10!==0)? `${horario[0]+1}:${(i+1)*10%60}`:`${horario[0]}:${(i+1)*10}`
-                return [inicio,final];
-            });
-            setAvailableHours(hours);
+            // const hours = (Array.from(Array(numberIntervales).keys())).map((i) => {
+            //     const inicio = `${horario[0]}:${i*10}`;
+            //     const final = ((i+1)*10%60===0 && i*10!==0)? `${horario[0]+1}:${(i+1)*10%60}`:`${horario[0]}:${(i+1)*10}`
+            //     return [inicio,final];
+            // });
+            // setAvailableHours(hours);
             setProgramId(programTvId);
          },'tvprograms')
     }, [newSpace]);
@@ -78,11 +87,17 @@ export default function ReservedForm() {
             <form>
                 <div className='inputProduct'>
                     <label for="product" className='nameInput'>Nombre del anunciante</label><br/>
-                    <input placeholder='Producto' name="product" className='loginSelect' onChange={handleInputChange}></input>                        
+                    <InputPredictive items={allProducts} pushValue={(value) => setNewSpace(prevState => ({
+                            ...prevState,
+                            product: value
+                            }))}/>                       
                 </div>
                 <div className='inputProgram'>
                     <label for="program" className='nameInput'>Nombre del programa</label><br/>
-                    <input placeholder='Programa' name="program" className='loginSelect' onChange={handleInputChange}></input>                        
+                    <InputPredictive items={allPrograms} pushValue={(value) => setNewSpace(prevState => ({
+                            ...prevState,
+                            program: value
+                            }))}/>                      
                 </div>
                 <div className='nameInput'>La selección de fecha debe ser posterior  al día que se solicita la reserva</div>
                 <div className='selecFecha'>
@@ -96,7 +111,6 @@ export default function ReservedForm() {
                             date: value
                             }))}>
                         </InputCalendar>
-                        {/* <input type="date" name="date" id='calendar' onChange={handleInputChange} required></input> */}
                         </div>
                     <div>
                         <select name="reservedHour" className='inputDate' onChange={handleInputChange}>
