@@ -41,6 +41,11 @@ form{
 .nameInput{
     height: 10%;
 }
+input{
+    background: #DBDBDB;
+    color: #898686;
+    margin: 0px solid #DBDBDB;
+}
 .selecFecha{
     height: 40%;
     @include flexDirection(row);

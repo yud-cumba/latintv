@@ -60,11 +60,11 @@ export default function ReservedForm() {
             </div>
             <form>
                 <div className='inputProduct'>
-                    <label for="product" className='nameInput'>Nombre del anunciante</label>
+                    <label for="product" className='nameInput'>Nombre del anunciante</label><br/>
                     <input placeholder='Producto' name="product" onChange={handleInputChange}></input>                        
                 </div>
                 <div className='inputProgram'>
-                    <label for="program" className='nameInput'>Nombre del programa</label>
+                    <label for="program" className='nameInput'>Nombre del programa</label><br/>
                     <input placeholder='Programa' name="program" onChange={handleInputChange}></input>                        
                 </div>
                 <div className='nameInput'>La selección de fecha debe ser posterior  al día que se solicita la reserva</div>
