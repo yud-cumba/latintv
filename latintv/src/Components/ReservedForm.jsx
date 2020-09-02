@@ -61,17 +61,17 @@ export default function ReservedForm() {
             <form>
                 <div className='inputProduct'>
                     <label for="product" className='nameInput'>Nombre del anunciante</label><br/>
-                    <input placeholder='Producto' name="product" onChange={handleInputChange}></input>                        
+                    <input placeholder='Producto' name="product" className='loginSelect' onChange={handleInputChange}></input>                        
                 </div>
                 <div className='inputProgram'>
                     <label for="program" className='nameInput'>Nombre del programa</label><br/>
-                    <input placeholder='Programa' name="program" onChange={handleInputChange}></input>                        
+                    <input placeholder='Programa' name="program" className='loginSelect' onChange={handleInputChange}></input>                        
                 </div>
                 <div className='nameInput'>La selección de fecha debe ser posterior  al día que se solicita la reserva</div>
                 <div className='selecFecha'>
-                    <div><input type="date" name="date" onChange={handleInputChange}></input></div>
+                    <div><input type="date" name="date" className='inputDate' onChange={handleInputChange}></input></div>
                     <div>
-                        <select name="reservedHour" onChange={handleInputChange}>
+                        <select name="reservedHour" className='inputDate' onChange={handleInputChange}>
                             {availableHours.map((hours) => <option value={hours}>
                                 {`(${hours[0]}-${hours[1]})`}
                             </option>)}
@@ -79,18 +79,16 @@ export default function ReservedForm() {
                     </div>
                 </div>
             </form>
-            <div>
-                <div>
-                    <Link
+            <div className='sectionBotones'>
+                    <button className='btnCancelar' >Cancelar</button> 
+                    <Link className='btnVerificarReserva'
                         to={{
                             pathname: "/verifica-tu-reserva",
                             state: newSpace,
                         }}
                     >
                     Verificar Reserva
-                    </Link>                    
-                </div>
-                <div><button >Cancelar</button></div>            
+                    </Link>                               
             </div>
         </div>
     )

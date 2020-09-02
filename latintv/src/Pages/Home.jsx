@@ -3,6 +3,9 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer'
 import { Link } from "react-router-dom";
 import './styles/Home.scss'
+import image1 from '../Images/home_1.png';
+import image2 from '../Images/home_2.png';
+import image3 from '../Images/home_3.png';
 
 const Home = () => {
     return(
@@ -10,21 +13,21 @@ const Home = () => {
             <Header/>
             <div className='containerCategory'>
                 <section className='containerSectionCategory'>
-                    <img className='imageCategory' src='https://www.eltiempo.com/files/image_950_534/uploads/2019/11/15/5dcf255dc36d4.jpeg' alt=''/>
+                    <img className='imageCategory' src={image1} alt=''/>
                     <div className='nameCategory'>
                         <p className='category'>BLOQUE DE PROGRAMAS<br/>DIARIOS</p>
                         <Link className='selectCaregory' to={'/CategoriaRegular'}>Detalles</Link>
                     </div>
                 </section>
                 <section className='containerSectionCategory'>
-                    <img className='imageCategory' src='https://cde.americatv.com.pe/americlub-butaca-america-vota-tu-pela-favorita-noticia-67161-696x418-182236.jpg' alt=''/>
+                    <img className='imageCategory' src={image2} alt=''/>
                     <div className='nameCategory'>
                         <p className='category'>BLOQUE DE PROGRAMAS<br/>PRIME</p>
                         <Link className='selectCaregory' to={'/CategoriaPrime'}>Detalles</Link>
                     </div>
                 </section>
                 <section className='containerSectionCategory'>
-                    <img className='imageCategory' src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTF4aDINTjj64WSH7Fwz97J_uVR5WRTFFq_oA&usqp=CAU' alt=''/>
+                    <img className='imageCategory' src={image3} alt=''/>
                     <div className='nameCategory'>
                         <p className='category'>BLOQUE DE PROGRAMAS<br/>SUPER PRIME</p>
                         <Link className='selectCaregory' to={'/CategoriaSuperPrime'}>Detalles</Link>
