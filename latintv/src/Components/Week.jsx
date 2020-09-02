@@ -10,34 +10,6 @@ const localizer = momentLocalizer(moment);
 // views:
 //{MONTH: "month", WEEK: "week", WORK_WEEK: "work_week", DAY: "day", AGENDA: "agenda"}
 //array de eventos
-
-const myEventsList= [{
-    title: 'today',
-    start: new Date('2020-08-31 10:22:00'),
-    end: new Date('2020-08-31 10:42:00')
-  },
-  {
-    title: "string",
-    start: new Date('2020-08-31 12:22:00'),
-    end: new Date('2020-08-31 12:42:00')
-  },
-  {
-    title: "probando",
-    start: new Date('2020-09-1 14:22:00'),
-    end: new Date('2020-09-1 14:42:00'),
-    allDay: true
-  },
-  {
-    title: "string",
-    start: new Date('2020-08-31 15:22:00'),
-    end: new Date('2020-08-31 15:42:00')
-  },
-  {
-    title: "probando",
-    start: new Date('2020-09-1 14:22:00'),
-    end: new Date('2020-09-1 14:42:00'),
-  },
-]
   
 export default function Week() {
     const userId = 'A27rshHeq0eZGB7aJZnB';

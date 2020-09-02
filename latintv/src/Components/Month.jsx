@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Calendar, Views, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-
+import { getUser, getReservedSpace } from '../firebase/firestore'
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
@@ -11,40 +11,30 @@ const localizer = momentLocalizer(moment);
 //{MONTH: "month", WEEK: "week", WORK_WEEK: "work_week", DAY: "day", AGENDA: "agenda"}
 //array de eventos
 
-const myEventsList= [{
-    title: 'today',
-    start: new Date('2020-08-31 10:22:00'),
-    end: new Date('2020-08-31 10:42:00')
-  },
-  {
-    title: "string",
-    start: new Date('2020-08-31 12:22:00'),
-    end: new Date('2020-08-31 12:42:00')
-  },
-  {
-    title: "probando",
-    start: new Date('2020-09-1 14:22:00'),
-    end: new Date('2020-09-1 14:42:00'),
-    allDay: true
-  },
-  {
-    title: "string",
-    start: new Date('2020-08-31 15:22:00'),
-    end: new Date('2020-08-31 15:42:00')
-  },
-  {
-    title: "probando",
-    start: new Date('2020-09-1 14:22:00'),
-    end: new Date('2020-09-1 14:42:00'),
-  },
-]
-  
 export default function Month() {
+  const userId = 'A27rshHeq0eZGB7aJZnB';
+  const [events, setEvents] = useState([]);
+  useEffect(() => {
+      getUser(userId)
+          .then((user) =>  user.reservedSpacesId)
+          .then((arrayIds) => 
+              arrayIds.map((reservedSpaceId) =>
+                  getReservedSpace(reservedSpaceId)
+              ))
+          .then((array) => Promise.all(array))
+          .then((mySpaces) => mySpaces.map(space => ({
+              title: space.programName,
+              start: new Date(`${space.date} ${ space.reservedHour[0]}`),
+              end: new Date(`${space.date} ${ space.reservedHour[1]}`)
+          })))
+          .then((array) => setEvents(array))
+          
+  })
     return (
         <div>
              <Calendar
       localizer={localizer}
-      events={myEventsList}
+      events={events}
       titleAccessor='titulo'
       startAccessor="start"
       endAccessor="end"
