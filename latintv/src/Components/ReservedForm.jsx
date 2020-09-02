@@ -35,7 +35,6 @@ export default function ReservedForm() {
         const userId = 'A27rshHeq0eZGB7aJZnB';
         // document.getElementById('calendar').setAttribute('min', currentDate);
         // document.getElementById('calendar').setAttribute('value', currentDate);
-        console.log(currentDate);
         getAllData((programs) => {
             const programTv = programs.filter((program) => program.nombre === newSpace.program);
             const programTvId = (programTv.length>0)? programTv[0].id : 0;
@@ -54,7 +53,6 @@ export default function ReservedForm() {
             setProgramId(programTvId);
          },'tvprograms')
     }, [newSpace]);
-    console.log(weekToNumber(availableDays));
 
     function filterDate (date) {
             const day = getDay(date);
@@ -79,28 +77,29 @@ export default function ReservedForm() {
             </div>
             <form>
                 <div className='inputProduct'>
-                    <label for="product" className='nameInput'>Nombre del anunciante</label>
-                    <input placeholder='Producto' name="product" onChange={handleInputChange}></input>                        
+                    <label for="product" className='nameInput'>Nombre del anunciante</label><br/>
+                    <input placeholder='Producto' name="product" className='loginSelect' onChange={handleInputChange}></input>                        
                 </div>
                 <div className='inputProgram'>
-                    <label for="program" className='nameInput'>Nombre del programa</label>
-                    <input placeholder='Programa' name="program" onChange={handleInputChange}></input>                        
+                    <label for="program" className='nameInput'>Nombre del programa</label><br/>
+                    <input placeholder='Programa' name="program" className='loginSelect' onChange={handleInputChange}></input>                        
                 </div>
                 <div className='nameInput'>La selección de fecha debe ser posterior  al día que se solicita la reserva</div>
                 <div className='selecFecha'>
                     <div>
                         <InputCalendar 
+                            className='inputDate'
                             filterDate={filterDate} 
                             name="date" 
                             dateValue={(value) => setNewSpace(prevState => ({
                             ...prevState,
-                            date: value.toString()
+                            date: value
                             }))}>
                         </InputCalendar>
                         {/* <input type="date" name="date" id='calendar' onChange={handleInputChange} required></input> */}
                         </div>
                     <div>
-                        <select name="reservedHour" onChange={handleInputChange}>
+                        <select name="reservedHour" className='inputDate' onChange={handleInputChange}>
                             {availableHours.map((hours) => <option value={hours}>
                                 {`(${hours[0]}-${hours[1]})`}
                             </option>)}
@@ -108,18 +107,16 @@ export default function ReservedForm() {
                     </div>
                 </div>
             </form>
-            <div>
-                <div>
-                    <Link
+            <div className='sectionBotones'>
+                    <button className='btnCancelar' >Cancelar</button> 
+                    <Link className='btnVerificarReserva'
                         to={{
                             pathname: "/verifica-tu-reserva",
                             state: {...newSpace, programId},
                         }}
                     >
                     Verificar Reserva
-                    </Link>                    
-                </div>
-                <div><button >Cancelar</button></div>            
+                    </Link>                               
             </div>
         </div>
     )

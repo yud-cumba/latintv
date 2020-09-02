@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState }from 'react'
 import { useHistory } from 'react-router-dom';
 import { addReservedSpace, addSpaceToUser } from '../firebase/firestore'
 import Header from '../Components/Header';
@@ -6,13 +6,16 @@ import './styles/VerifyPage.scss'
 
 const  VerifyPage = prop => {
     let history = useHistory();
+    const [ data, setData ] = useState((prop.location && prop.location.state) || {})
     const {date , 
     programId, 
-    reservedHour, program} = (prop.location && prop.location.state) || {};
-    
+    reservedHour, program} = data;
     const userId = 'A27rshHeq0eZGB7aJZnB';
+
+    
     function reserveSpace (){
         alert('añadido con exito');
+        console.log(reservedHour);
         addReservedSpace(userId, programId,program, reservedHour.split(','), date)
         .then((data) => {
             addSpaceToUser(data.id, userId )
@@ -24,6 +27,7 @@ const  VerifyPage = prop => {
     function editReserve (){
         console.log('Editar ')
     }
+
 
     return (
         <div>

@@ -1,0 +1,44 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
+html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+  }
+.categoriaRegular{
+    width: 100%;
+    height: 100%;
+}
+.containerCategoriaRegular{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.containerLV{
+    width: 50%;
+    height: 100%;
+}
+.titleContainer{
+    width: 100%;
+    height: 10%;
+    // margin: 0 0 1px 0;
+    // margin: 1px solid $blue;
+}
+.containerSD{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.containerS{
+    width: 100%;
+    height: 60%;
+    background: #CECCCC;
+}
+.containerD{
+    width: 100%;
+    height: 40%;
+    background: $skyblue;
+}
