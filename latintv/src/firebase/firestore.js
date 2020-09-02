@@ -6,7 +6,7 @@ export const getMyReservedSpaces = (id) => db.collection('reservedSpaces').doc(i
   console.log(doc);
 });
 
-export const logIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
+// export const logIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
-export const logOut = (email, password) => firebase.auth().signOut()
+// export const logOut = (email, password) => firebase.auth().signOut();
 
