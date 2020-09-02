@@ -35,7 +35,7 @@ export const getReservedSpace = (id) => db.collection('tvprograms').doc(id)
   return doc.data();
 });
 
-export const addNewSpace = (userId, programId, reservedHour, date) => db.collection('reservedSpaces').add({
+export const addReservedSpace = (userId, programId, reservedHour, date) => db.collection('reservedSpaces').add({
   userId,
   programId,
   reservedHour,
