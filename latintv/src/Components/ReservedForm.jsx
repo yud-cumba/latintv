@@ -18,38 +18,38 @@ export default function ReservedForm() {
     //variables
 
     
-    // // getUser(userId)
-    // //     .then((user) => {
-    // //     setNewSpace(prevState => ({
-    // //     ...prevState,
-    // //     products: user.products
-    // //   }))
-    // // })
-    // //functions
-    //     // .then((programs) => console.log(programs));
-    // useEffect(()=>{
-    //     const userId = 'A27rshHeq0eZGB7aJZnB';
-    //     document.getElementById('calendar').setAttribute('min', currentDate);
+    // getUser(userId)
+    //     .then((user) => {
+    //     setNewSpace(prevState => ({
+    //     ...prevState,
+    //     products: user.products
+    //   }))
+    // })
+    //functions
+        // .then((programs) => console.log(programs));
+    useEffect(()=>{
+        const userId = 'A27rshHeq0eZGB7aJZnB';
+        document.getElementById('calendar').setAttribute('min', currentDate);
 
-    //     getAllData((programs) => {
-    //         const programTv = programs.filter((program) => program.nombre === newSpace.program);
-    //         const programTvId = (programTv.length>0)? programTv[0].id : 0;
-    //         const days = programTv.dias;
-    //         setAvailableDays(days);
-    //         const horario = (programTv.length>0)? programTv[0].horario : [0,1];
-    //         const numberIntervales = (horario[1]-horario[0])*6;
-    //         const hours = (Array.from(Array(numberIntervales).keys())).map((i) => {
-    //             const inicio = `${horario[0]}:${i*10}`;
-    //             const final = ((i+1)*10%60===0 && i*10!==0)? `${horario[0]+1}:${(i+1)*10%60}`:`${horario[0]}:${(i+1)*10}`
-    //             return [inicio,final];
-    //         });
-    //      setAvailableHours(hours);
-    //      setNewSpace(prevState => ({
-    //         ...prevState,
-    //         programId: programTvId
-    //       }));
-    //      },'tvprograms')
-    // });
+        getAllData((programs) => {
+            const programTv = programs.filter((program) => program.nombre === newSpace.program);
+            const programTvId = (programTv.length>0)? programTv[0].id : 0;
+            const days = programTv.dias;
+            setAvailableDays(days);
+            const horario = (programTv.length>0)? programTv[0].horario : [0,1];
+            const numberIntervales = (horario[1]-horario[0])*6;
+            const hours = (Array.from(Array(numberIntervales).keys())).map((i) => {
+                const inicio = `${horario[0]}:${i*10}`;
+                const final = ((i+1)*10%60===0 && i*10!==0)? `${horario[0]+1}:${(i+1)*10%60}`:`${horario[0]}:${(i+1)*10}`
+                return [inicio,final];
+            });
+         setAvailableHours(hours);
+         setNewSpace(prevState => ({
+            ...prevState,
+            programId: programTvId
+          }));
+         },'tvprograms')
+    });
     const handleInputChange = event => {
         const { name, value } = event.target;
         setNewSpace(prevState => ({

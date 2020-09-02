@@ -1,0 +1,99 @@
+@import "../../global-sass/index.scss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.background-login{
+    background-image:url(./assets/back1.jpg);
+    width:100vw;
+    height:100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 1s;
+
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes animate{
+    0%{
+        background-image: url(./assets/back1.jpg);
+    }20%{
+        background-image: url(./assets/back2.jpg);
+    }40%{
+        background-image: url(./assets/back3.jpg);
+    }60%{
+        background-image: url(./assets/back4.jpg);
+    }80%{
+        background-image: url(./assets/back5.jpg);
+    }100%{
+        background-image: url(./assets/back6.jpg);
+    }
+}
+
+.login{
+    background-color: $white;
+    width: 400px;
+    margin-top: 70px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.miniLogo{
+    margin: auto;
+    width: 100px;
+    background-color: $orange;
+};
+.login-header{
+    box-sizing: border-box;
+    background-color: $blue;
+    width: 400px;
+    padding-top: 30px;
+    padding-bottom: 1px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    color: $white;
+    text-align: center;
+}
+.login-form{
+    margin: 0px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 95px;
+    padding-right: 95px;
+    font-size: 10px;
+    color:$blue;
+}
+.login-select{
+    width: 200px;
+    background-color: #E5E5E5;
+    border-width: THIN;
+}
+.login-button{
+    color:$white;
+    font-weight: bold;
+    background-color: $orange;
+    border-width: thin;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 54px;
+    margin-right: 54px;
+    margin-top: 20px;
+}
+.login-register{
+    font-size: 12px;
+    padding-bottom: 15px;
+    text-align: center;
+}
