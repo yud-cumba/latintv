@@ -22,22 +22,9 @@ export default function ReservedForm() {
     const [availableDays, setAvailableDays] = useState([]);
     const [allPrograms, setAllPrograms] = useState([]);
     const [allProducts, setAllProducts] = useState([]);
-    //variables
 
-    
-    // getUser(userId)
-    //     .then((user) => {
-    //     setNewSpace(prevState => ({
-    //     ...prevState,
-    //     products: user.products
-    //   }))
-    // })
-    //functions
-        // .then((programs) => console.log(programs));
     useEffect(()=>{
         const userId = 'A27rshHeq0eZGB7aJZnB';
-        // document.getElementById('calendar').setAttribute('min', currentDate);
-        // document.getElementById('calendar').setAttribute('value', currentDate);
         getUser(userId)
             .then((user) => {
                 setAllProducts((user.products).map(product => ({ id: product, label: product})));
