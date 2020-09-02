@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+$skyblue:#33A9CA;
+$white:#ffff;
+$black:#00171F;
+$blue:#003459;
+$orange:#ff4242;
+@mixin definirAnchoAlto($width, $height) {
+    width: $width;
+    height: $height;
+}
+@mixin definirColores($background, $color) {
+    background: $background;
+    color: $color;
+}
+@mixin centradoTotal {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+@mixin textAling($align) {
+    text-align: $align;
+}
+@mixin justifyContent($justify) {
+    display: flex;
+    justify-content: $justify;
+}
+@mixin justifyItems($justify) {
+    display: flex;
+    justify-items: $justify;
+}
+@mixin flexDirection($flex) {
+    display: flex;
+    flex-direction: $flex;
+}

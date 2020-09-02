@@ -1,0 +1,21 @@
+@import '../../global-sass/estilosCompartidos.scss';
+@import '../../global-sass/variables.scss';
+
+html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+  }
+#root{
+    @include definirAnchoAlto(100%, 100%);
+}
+.containerReservedPage{
+    @include definirAnchoAlto(100%, 100%);
+    background-image: url('../../Images/fondoColage.png');
+}
+.containerReserved{
+    @include definirAnchoAlto(100%, 90%);
+    @include justifyContent(center);
+    align-items: center;     
+}
