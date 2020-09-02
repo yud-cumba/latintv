@@ -29,7 +29,8 @@ export default function Week() {
             })))
             .then((array) => setEvents(array))
             
-    })
+    },[])
+    events.map((e) => console.log(e.start));
     return (
         <div>
              <Calendar
@@ -44,7 +45,7 @@ export default function Week() {
       onView={() => console.log('cambio de vista')}
       onDrillDown={() => console.log('date header click semanal')}
       onRangeChange={() => console.log('cambio rango')}
-      onSelectEvent={(event, e) => alert(event)} //clickea datos del select event
+      onSelectEvent={(event, e) => console.log(event)} //clickea datos del select event
       onDoubleClickEvent={(event, e) => console.log('click 2 veces',event,e)}
       views={['month','week']}
     //   views={{
