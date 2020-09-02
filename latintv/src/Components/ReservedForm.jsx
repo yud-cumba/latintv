@@ -1,6 +1,7 @@
 import React, {useState , useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import {getReservedSpac, addNewSpace, getUser, getAllData} from '../firebase/firestore'
+import './styles/Reservedform.scss'
 
 export default function ReservedForm() {
     //states
@@ -55,7 +56,7 @@ export default function ReservedForm() {
 
     console.log(newSpace)
     return (
-        <div>
+        <div className='containerForm'>
             <div>
                 Reserva su publicidad
             </div>

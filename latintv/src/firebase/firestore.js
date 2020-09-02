@@ -41,6 +41,14 @@ export const addNewSpace = (userId, programId, reservedHour, date) => db.collect
   reservedHour,
   date,
 });
+export const getVvprograms = (callback) => db.collection('tvprograms').get()
+.then((snapShots)=>{
+  let programas = [];
+  programas = snapShots.docs.map(doc => {
+    return {id: doc.id, data: doc.data()}
+})
+callback(programas);
+})
 // export const logIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
 // export const logOut = (email, password) => firebase.auth().signOut()
