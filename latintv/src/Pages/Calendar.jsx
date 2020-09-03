@@ -12,11 +12,9 @@ export default function Calendar() {
     return (
         <div>
             <Header/>
-            <div className="calendar-body">
-                    <CalendarColumn/>
-                    {showModal && <ProgramModal data={data} show = {(show) => setShowModal(show)}/>}
-                    <Week show={(show) => setShowModal(show)} data={(data) => setData(data)}/>
-            </div>
+            {showModal && <ProgramModal data={data} show = {(show) => setShowModal(show)}/>}
+            <CalendarColumn/>
+            <Week show={(show) => setShowModal(show)} data={(data) => setData(data)}/>
         </div>
     )
 };

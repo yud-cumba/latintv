@@ -8,15 +8,13 @@ const ProgramModal = (props) => {
             {/* <Header/> */}
             {/* <a href='#modal' className="show-modal">Prueba para modal</a> */}
                 {/* <aside id="modal" className="modal"> */}
-                <div className="pcontent-modal">
-                        <header className="pmodal-header">
-                            <h1>AQUI VA IMAGEN DE {data.title}</h1>
-                            <button className="pclose-modal" onClick ={ () => show(false)}>X</button>
+                <aside className="pmodal">
+                        <div className="content-pmodal">
+                            <img src={require('../Pages/styles/assets/programa.png')}/>
+                            <a href="#" className="close-pmodal" onClick ={ () => show(false)}>X</a>
                             <p>Programa Aplicado: {data.title}</p>
-                        </header>
-                        <div className="pmodal-body">
                         </div>
-                    </div>
+                </aside>
         </React.Fragment>
     )
 };
