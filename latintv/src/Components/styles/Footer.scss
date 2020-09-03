@@ -8,7 +8,7 @@
     @include justifyContent(center);
     margin-top: 1%;
 }
-.divLatin{
+.divLatin, .divPoliticas{
     width: 30%;
 }
 .divTerminos{
@@ -17,6 +17,5 @@
     @include centradoTotal;
 }
 .divPoliticas{
-    width: 30%;
     @include textAling(right);
 }

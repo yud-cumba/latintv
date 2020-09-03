@@ -12,7 +12,7 @@ html, body{
 }
 .containerReservedPage{
     @include definirAnchoAlto(100%, 100%);
-    background-image: url('../../Images/fondoColage.png');
+    background-image: url('../../Images/fondo.png');
 }
 .containerReserved{
     @include definirAnchoAlto(100%, 90%);

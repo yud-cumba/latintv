@@ -1,0 +1,131 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
+html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+  }
+.categoriaRegular{
+    width: 100%;
+    height: 100%;
+}
+.containerCategoriaRegular{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.containerLV{
+    width: 50%;
+    height: 100%;
+}
+.titleContainer{
+    width: 100%;
+    margin-top: 3%;
+    border-bottom: solid 1px $blue;
+    text-align: center;
+}
+
+.containerTable{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+table{
+    width: 80%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.titleTable1{
+    background: $skyblue;
+    color: $blue;
+    margin-bottom: 10%;
+}
+.titleTable2{
+    background: $orange;
+    color: $white;
+}
+.titleTable3{
+    background: $blue;
+    color: $white;
+}
+.title1{ color: $blue;}
+.title2{ color: $blue;}
+.title3{ color: $white;}
+.elementTable1{ background: #C4C4C4;}
+.elementTable2{ background: $white;}
+.elementTable3{ background: #DBDBDB;}
+.containerSD{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.containerS{
+    width: 100%;
+    height: 60%;
+    background: #CECCCC;
+}
+.containerD{
+    width: 100%;
+    height: 40%;
+    background: $skyblue;
+}
+.sectionFooterReserva{
+    width: 100%;
+}
+.botonesReserva{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 4% 0 4% 0;
+}
+.btnCancelarReserva{
+    background: $skyblue;
+    color: $white;
+    padding: 1% 2% 1% 2%;
+    border-radius: 15px;
+    border: 0;
+    font-size: 1rem;
+}
+.btnSolicitarReserva{
+    background: $orange;
+    color: $white;
+    padding: 1% 2% 1% 2%;
+    border-radius: 15px;
+    border: 0;
+    font-size: 1rem;
+}
+.sectionAviso{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+.tiempo{
+    width: 20%;
+    background: $orange;
+    color: $white;
+    padding: 1%;
+}
+.precio{
+    width: 30%;
+    background: $blue;
+    color: white;
+    padding: 1%;
+}
+.igv{
+    width: 20%;
+    background: #DBDBDB;
+    color: $black;
+    padding: 1%;
+}
+.terminos{
+    width: 90%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.6rem;
+}

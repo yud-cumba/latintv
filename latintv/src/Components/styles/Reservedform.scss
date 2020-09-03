@@ -1,6 +1,9 @@
 @import '../../global-sass/estilosCompartidos';
 @import '../../global-sass/variables.scss';
 
+*{
+    font-family: 'Open Sans', sans-serif;
+}
 .containerForm{
     @include definirAnchoAlto(35%, 60%);
     // padding: 2%;
@@ -32,17 +35,59 @@ form{
     margin-right: auto;
 }
 .nameInput{
+    height: 10%;
     color: $blue;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
+    margin-top: 5%;
 }
 .inputProduct, .inputProgram{
     height: 25%;
 }
-.nameInput{
-    height: 10%;
+.loginSelect{
+    width: 200px;
+    height: 20px;
+    background-color: #DBDBDB;
+    color: #898686;
+    border: 0;
+    border-width: THIN;
 }
 .selecFecha{
+    width: 80%;
     height: 40%;
     @include flexDirection(row);
+    justify-content: space-around;
 }
-// 20%
+.inputDate{
+    width: 100px;
+    height: 20px;
+    background-color: #DBDBDB;
+    color: $blue;
+    border: 0;
+}
+.sectionBotones{
+    width: 100%;
+    height: 20%;
+    background: $blue;
+    color: $white;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+.btnVerificarReserva{
+    @include definirColores($skyblue, $white);
+}
+.btnCancelar{
+    @include definirColores($orange, $white);
+}
+.btnVerificarReserva, .btnCancelar{
+    width: 35%;
+    border: 0;
+    padding: 1%;
+    font-size: 1rem;
+    border-radius: 15px;
+    text-align: center;
+}
