@@ -6,11 +6,11 @@ const CalendarColumn = () => {
     return (
         <div className="column">
             <div className="container-column">
-                <h2>Calendario de Reserva</h2>
+                <h2 className="main-title-column">Calendario de Reserva</h2>
                 <Month/>
                 <div className="table-second">
-                <p>PUBLICIDAD INGRESADA</p>
-                <p>Semana del 30 al 05</p>
+                <p className="titulo-column">PUBLICIDAD INGRESADA</p>
+                <p className="titulo-column">Semana del 30 al 05</p>
                     <table className="table-column">
                         <tbody>
                             <tr>
