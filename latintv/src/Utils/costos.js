@@ -2,6 +2,8 @@ import { getTvProgram, getUser } from "../firebase/firestore";
 
 const tarifaBasica = (categorie , recognize) => {
     const prices = (recognize)? [3200,4200,7200] : [ 3000, 4000, 7000];
+    console.log(categorie);
+    console.log(recognize)
     switch(categorie) {
         case 'regular':
             return prices[0];
@@ -12,7 +14,9 @@ const tarifaBasica = (categorie , recognize) => {
     }
 }
 
-const recargo = (time, price) => {
+const recarga = (time, price) => {
+    console.log(time.getHours())
+    console.log(price);
     if((time.getHours())>12 && (time.getHours())<=16){
         return price*0.05;
     } else if ((time.getHours())>16) {
@@ -25,12 +29,18 @@ const recargo = (time, price) => {
 const costProgramById = (programId ,userId, time) => 
     getTvProgram(programId)
         .then((program) => {
-           getUser(userId)
-           .then((user) => ({
-               tarifaBasica : tarifaBasica(program.categoria, user.recognize),
-               recargo: recargo(time, tarifaBasica(program.categoria, user.recognize)),
-               igv: tarifaBasica(program.categoria, user.recognize)*0.18
-           }))
+           console.log(program);
+           return getUser(userId)
+           .then((user) => {
+               const tarifaBase = parseInt(tarifaBasica(program.categoria, user.recognize));
+               const recargo = parseInt(recarga(time, tarifaBasica(program.categoria, user.recognize)));
+               const igv = tarifaBasica(program.categoria, user.recognize)*0.18;
+               return {
+               tarifaBase,
+               recargo,
+               igv,
+               total: tarifaBase+recargo+igv
+           }})
     })
 export default costProgramById;
 

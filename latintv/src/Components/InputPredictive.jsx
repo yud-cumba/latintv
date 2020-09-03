@@ -1,4 +1,4 @@
-import  React, { useState, useEffect } from 'react'
+import  React, { useState, useEffect } from 'react';
 import ReactAutocomplete from 'react-autocomplete'
 
 export default function InputPredictive(props) {

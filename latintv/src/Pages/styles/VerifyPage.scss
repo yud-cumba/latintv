@@ -1,6 +1,11 @@
 @import '../../global-sass/estilosCompartidos';
 @import '../../global-sass/variables.scss';
 
+.back-modal{
+    @include definirAnchoAlto(100%, 100%);
+    background-image: url('../../Images/fondo.png');
+}
+
 .show-modal{
     text-align: center;
     background-color: $blue;
@@ -65,7 +70,7 @@
     font-size:1.5em;
 }
 .modal a:hover{
-    color: #c0392b;
+    color: $orange;
 }
 .modal:target{
     opacity:1;

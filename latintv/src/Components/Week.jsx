@@ -3,6 +3,7 @@ import { Calendar, Views, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { getUser, getReservedSpace } from '../firebase/firestore'
+import './styles/Week.scss';
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
@@ -36,14 +37,13 @@ export default function Week() {
     },[])
     events.map((e) => console.log(e.start));
     return (
-        <div>
+        <div className="week-back">
              <Calendar
       localizer={localizer}
       events={events}
       titleAccessor='titulo'
       startAccessor="start"
       endAccessor="end"
-      style={{ height: 700 }}
       defaultView={Views.WEEK}
       onNavigate={() => console.log('data change ()next, prev')}
       onView={() => console.log('cambio de vista')}
