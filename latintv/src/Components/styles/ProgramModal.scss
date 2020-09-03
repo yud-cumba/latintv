@@ -1,0 +1,27 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
+.pmodal{
+    position: fixed;
+    top:-100vh;
+    left:0;
+    z-index:99999999;
+    background-color: rgba(0, 52, 89, 0.85);
+    width:100vw;
+    height:100vh;
+    opacity:0;
+    transition:opacity 0.35s ease;
+        .pmodal-container{
+            width:100%;
+            max-width:500px;
+            position: fixed;
+            left:50%;
+            top: -100vh;
+            transition: top 0.35s ease;
+            margin-left:-250px;
+            background:$white;
+            box-shadow:0 1px 2px rgba(0,0,0,0.1);
+            border-radius:15px;
+            z-index:9999999;
+        }
+    }
