@@ -1,4 +1,6 @@
 import db from '../ConexionFirebase';
+import firebase from 'firebase/app';
+import 'firebase/firebase-auth'
 
 export const getData = (collectionName) => db.collection(collectionName)
   .onSnapshot((docs) => {
@@ -65,8 +67,13 @@ export const getVvprograms = (callback) => db.collection('tvprograms').get()
     return {id: doc.id, data: doc.data()}
 })
 callback(programas);
+});
+
+export const traerUsuarios = (callback) => db.collection('users').get()
+.then((snapShots)=>{
+  let usuarios = [];
+  usuarios = snapShots.docs.map(doc => {
+      return {id: doc.id, data: doc.data()}      
 })
-// export const logIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
-
-// export const logOut = (email, password) => firebase.auth().signOut()
-
+  callback(usuarios);
+});

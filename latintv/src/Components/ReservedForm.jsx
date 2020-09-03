@@ -8,10 +8,24 @@ import InputCalendar from './InputCalendar';
 import weekToNumber from '../Utils/weekConverter'
 import getDay from "date-fns/getDay";
 import InputPredictive from './InputPredictive';
-
+import firebase from 'firebase/app';
+import 'firebase/firebase-auth'
+import { traerUsuarios } from '../firebase/firestore'
 
 export default function ReservedForm() {
-    //states
+    const [ gmailUser, setgmailUser] = useState('');
+    const [ dataUser, setdataUser ] = useState([]);
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            setgmailUser(user.email);
+        }
+      });
+    useEffect(() => {
+        traerUsuarios((data)=>{
+            // console.log(data)
+            setdataUser(data);
+        });
+    }, [dataUser]);
     const [ newSpace , setNewSpace] = useState({
          date : '' ,
          reservedHour: '' , 
@@ -59,7 +73,7 @@ export default function ReservedForm() {
         }));
       };
     
-    console.log(newSpace);
+    // console.log(newSpace);
     return (
         <div className='containerForm'>
             <div className='divheaderForm'>

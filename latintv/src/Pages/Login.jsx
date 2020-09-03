@@ -1,18 +1,16 @@
 import React, { useState, useEffect }  from 'react';
-import { useHistory } from 'react-router-dom';
 import Header from '../Components/Header';
 import './styles/Login.scss'
-  // useState()
-  // return(
+import { signIn } from '../firebase/auth';
+import { useHistory } from 'react-router-dom';
+
 const Login = () => {
   let history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const loginSubmit = (event) => {
-     event.preventDefault();
-    //  localStorage.setItem('token', token);
-      history.push('/reserva');
+      event.preventDefault();
   };
   return(<body className="background-login">
       <Header/>
@@ -24,11 +22,20 @@ const Login = () => {
             <form className='login-form' onSubmit={loginSubmit}>
               <p>Ingresa tu correo electrónico</p>
               <input type="text" className="login-select" name="user" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)}/>
-              {/* value={useremail} onChange={updateUser} */}
               <p>Ingresa tu contraseña</p>
               <input type="password" className="login-select" name="password" placeholder="Contraseña"  value={password} onChange={(e) => setPassword(e.target.value)}/>
-              {/* value={password} onChange={updatepassword} */}
-              <button type="submit" value="Login" className="login-button">Ingresar</button>
+              <button type="submit" value="Login" className="login-button" onClick={()=>{
+                    signIn(email, password)
+                    .then((result) => {                
+                        console.log('hola')
+                            if (result.user.emailVerified === false) {
+                              console.log('correo no verificado');
+                            } else {
+                            console.log('si ingresa');
+                            history.push("/reserva");
+                            }
+                    });
+              }}>Ingresar</button>
             </form>
           <div className="login-register">
           <p>Olvide mi contraseña</p>
