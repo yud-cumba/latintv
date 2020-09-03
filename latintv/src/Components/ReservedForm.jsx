@@ -8,9 +8,14 @@ import InputCalendar from './InputCalendar';
 import weekToNumber from '../Utils/weekConverter'
 import getDay from "date-fns/getDay";
 import InputPredictive from './InputPredictive';
+import firebase from 'firebase/app';
+import 'firebase/firebase-auth'
+import { traerUsuarios } from '../firebase/firestore'
 
-
-export default function ReservedForm(props) {
+const ReservedForm = (props) =>  {
+    const [ gmailUser, setgmailUser] = useState('');
+    
+    const [ dataUser, setdataUser ] = useState([]);
     const { data } = props || {
         product : '',
         date : '' ,
@@ -21,32 +26,47 @@ export default function ReservedForm(props) {
     //states
     console.log(data);
     const [ newSpace , setNewSpace] = useState(data);
-    // const [edit, setedit] = useState(false);
-    const [programId, setProgramId] =useState('');
-    const [availableHours, setAvailableHours] = useState([]);
-    const [availableDays, setAvailableDays] = useState([]);
-    const [allPrograms, setAllPrograms] = useState([]);
-    const [allProducts, setAllProducts] = useState([]);
-    useEffect(()=>{
-        const userId = 'A27rshHeq0eZGB7aJZnB';
-        getUser(userId)
-            .then((user) => {
-                setAllProducts((user.products).map(product => ({ id: product, label: product})));
-            });
+   const [programId, setProgramId] =useState('');
+   const [availableHours, setAvailableHours] = useState([]);
+   const [availableDays, setAvailableDays] = useState([]);
+   const [allPrograms, setAllPrograms] = useState([]);
+   const [allProducts, setAllProducts] = useState([]);
 
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                setgmailUser(user.email);
+            }
+        });
+        traerUsuarios((data)=>{
+            setdataUser(data);
+        });
+        const id = dataUser.map((dat) => {
+            if(dat.data.email === gmailUser){
+                return dat.id;
+                
+            }
+        })
+        const userId = id[0]        
+        // const userId = 'A27rshHeq0eZGB7aJZnB';
+        if(userId != undefined || userId != null){
+            getUser(userId)
+                .then((user) => {
+                    setAllProducts((user.products).map(product => ({ id: product, label: product})));
+            });
+        }
         getAllData((programs) => {
             setAllPrograms(programs.map(program => ({ id: program.nombre, label: program.nombre})));
             const programTv = programs.filter((program) => program.nombre === newSpace.program);
             const programTvId = (programTv.length>0)? programTv[0].id : 0;
-            //console.log(programTv);
             const days = (programTv.length>0)? programTv[0].dias : ['lunes'];
-            //console.log(days);
             setAvailableDays(days);
             const horario = (programTv.length>0)? programTv[0].horario : [0,1];
             setAvailableHours(hourIntervales(horario));
             setProgramId(programTvId);
          },'tvprograms')
-    }, [newSpace]);
+
+    },[newSpace]);
 
     function filterDate (date) {
             const day = getDay(date);
@@ -62,7 +82,7 @@ export default function ReservedForm(props) {
         }));
       };
     
-    console.log(newSpace);
+    // console.log(newSpace);
     return (
         <div className='containerForm'>
             <div className='divheaderForm'>
@@ -126,3 +146,4 @@ export default function ReservedForm(props) {
         </div>
     )
 }
+export default ReservedForm;
