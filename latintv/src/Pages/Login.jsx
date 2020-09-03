@@ -26,12 +26,10 @@ const Login = () => {
               <input type="password" className="login-select" name="password" placeholder="Contraseña"  value={password} onChange={(e) => setPassword(e.target.value)}/>
               <button type="submit" value="Login" className="login-button" onClick={()=>{
                     signIn(email, password)
-                    .then((result) => {                
-                        console.log('hola')
+                    .then((result) => {
                             if (result.user.emailVerified === false) {
                               console.log('correo no verificado');
                             } else {
-                            console.log('si ingresa');
                             history.push("/reserva");
                             }
                     });

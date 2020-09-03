@@ -12,52 +12,62 @@ import firebase from 'firebase/app';
 import 'firebase/firebase-auth'
 import { traerUsuarios } from '../firebase/firestore'
 
-export default function ReservedForm() {
+const ReservedForm = () =>  {
     const [ gmailUser, setgmailUser] = useState('');
+    
     const [ dataUser, setdataUser ] = useState([]);
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            setgmailUser(user.email);
-        }
-      });
+    const [ newSpace , setNewSpace] = useState({
+        date : '' ,
+        reservedHour: '' , 
+        program:'',
+        day: ''
+   });
+   const [programId, setProgramId] =useState('');
+   const [availableHours, setAvailableHours] = useState([]);
+   const [availableDays, setAvailableDays] = useState([]);
+   const [allPrograms, setAllPrograms] = useState([]);
+   const [allProducts, setAllProducts] = useState([]);
+
+
     useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                setgmailUser(user.email);
+            }
+        });
         traerUsuarios((data)=>{
-            // console.log(data)
             setdataUser(data);
         });
-    }, [dataUser]);
-    const [ newSpace , setNewSpace] = useState({
-         date : '' ,
-         reservedHour: '' , 
-         program:'',
-         day: ''
-    });
-    const [programId, setProgramId] =useState('');
-    const [availableHours, setAvailableHours] = useState([]);
-    const [availableDays, setAvailableDays] = useState([]);
-    const [allPrograms, setAllPrograms] = useState([]);
-    const [allProducts, setAllProducts] = useState([]);
-
-    useEffect(()=>{
-        const userId = 'A27rshHeq0eZGB7aJZnB';
-        getUser(userId)
-            .then((user) => {
-                setAllProducts((user.products).map(product => ({ id: product, label: product})));
+        const id = dataUser.map((dat) => {
+            if(dat.data.email === gmailUser){
+                return dat.id;
+                
+            }
+        })
+        const userId = id[0]        
+        // const userId = 'A27rshHeq0eZGB7aJZnB';
+        if(userId != undefined || userId != null){
+            getUser(userId)
+                .then((user) => {
+                    setAllProducts((user.products).map(product => ({ id: product, label: product})));
             });
-
+        }
         getAllData((programs) => {
             setAllPrograms(programs.map(program => ({ id: program.nombre, label: program.nombre})));
             const programTv = programs.filter((program) => program.nombre === newSpace.program);
             const programTvId = (programTv.length>0)? programTv[0].id : 0;
-            //console.log(programTv);
             const days = (programTv.length>0)? programTv[0].dias : ['lunes'];
-            //console.log(days);
             setAvailableDays(days);
             const horario = (programTv.length>0)? programTv[0].horario : [0,1];
             setAvailableHours(hourIntervales(horario));
             setProgramId(programTvId);
          },'tvprograms')
-    }, [newSpace]);
+    });
+
+    
+    // useEffect(()=>{
+
+    // }, [newSpace]);
 
     function filterDate (date) {
             const day = getDay(date);
@@ -111,7 +121,7 @@ export default function ReservedForm() {
                     </div>
                     <div>
                         <select name="reservedHour" className='inputDate' onChange={handleInputChange}>
-                            {availableHours.map((hours) => <option value={hours}>
+                            {availableHours.map((hours, Key) => <option key={Key} value={hours}>
                                 {`(${hours[0]}-${hours[1]})`}
                             </option>)}
                         </select>
@@ -132,3 +142,4 @@ export default function ReservedForm() {
         </div>
     )
 }
+export default ReservedForm;
