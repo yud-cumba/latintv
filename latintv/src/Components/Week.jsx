@@ -4,6 +4,7 @@ import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { getUser, getReservedSpace } from '../firebase/firestore'
 import './styles/Week.scss';
+import { useHistory } from 'react-router-dom'
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
@@ -13,6 +14,7 @@ const localizer = momentLocalizer(moment);
 //array de eventos
   
 export default function Week() {
+    let history = useHistory();
     const userId = 'A27rshHeq0eZGB7aJZnB';
     const [events, setEvents] = useState([]);
     console.log(events);
@@ -49,14 +51,12 @@ export default function Week() {
       onView={() => console.log('cambio de vista')}
       onDrillDown={() => console.log('date header click semanal')}
       onRangeChange={() => console.log('cambio rango')}
-      onSelectEvent={(event, e) => console.log(event)} //clickea datos del select event
-      onDoubleClickEvent={(event, e) => console.log('click 2 veces',event,e)}
+      onSelectEvent={(event, e) => {
+          history.push('calendar#pmodal');
+          console.log(event)
+        }} //clickea datos del select event
+      onDoubleClickEvent={(event, e) => console.log('click 2 veces',event)}
       views={['month','week']}
-    //   views={{
-    //     month: false,
-    //     week: true,
-    //     day :false,
-    //   }}
       popup
       messages={{
         next: "sig",
