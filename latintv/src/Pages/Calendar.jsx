@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../Components/Header'
+import HeaderUserLogue from '../Components/HeaderUserLogue'
 import Week from '../Components/Week'
 import CalendarColumn from '../Components/CalendarColumn'
 // import ProgramModal from '../Components/ProgramModal'
@@ -9,7 +9,7 @@ import './styles/Calendar.scss'
 export default function Calendar(props) {
     return (
         <div>
-            <Header/>
+            <HeaderUserLogue/>
             <div className="calendar-body">
                     <CalendarColumn/>
                     <Week/>

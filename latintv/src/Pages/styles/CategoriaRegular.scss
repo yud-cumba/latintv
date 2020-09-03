@@ -82,6 +82,9 @@ table{
     justify-content: space-around;
     margin: 4% 0 4% 0;
 }
+.btnCancelarReserva, .btnSolicitarReserva :focus {
+    outline: none;
+}
 .btnCancelarReserva{
     background: $skyblue;
     color: $white;
