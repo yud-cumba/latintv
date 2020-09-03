@@ -14,7 +14,8 @@ const  VerifyPage = prop => {
 
     
     function reserveSpace (){
-        console.log('hour',reservedHour);
+        alert('añadido con exito');
+        console.log(reservedHour);
         addReservedSpace(userId, programId,program, reservedHour.split(','), date)
         .then((data) => {
             addSpaceToUser(data.id, userId )
@@ -29,7 +30,7 @@ const  VerifyPage = prop => {
 
 
     return (
-        <div>
+        <div className='back-modal'>
             <Header/>
                 <a href='#modal' className="show-modal">Prueba para modal</a>
                     <aside id="modal" className="modal">

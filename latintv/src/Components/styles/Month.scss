@@ -1,0 +1,13 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+.month-back{
+    background-color: $skyblue;
+    color:$white;
+    max-width: 22vw;
+    height: 30vh;
+    margin: auto;
+}
+.month-back .rbc-calendar .rbc-toolbar .rbc-btn-group{
+    display:none;
+}
+

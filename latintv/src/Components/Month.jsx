@@ -3,6 +3,7 @@ import { Calendar, Views, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { getUser, getReservedSpace } from '../firebase/firestore'
+import './styles/Month.scss';
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
@@ -35,14 +36,13 @@ export default function Month() {
     },[])
     
     return (
-        <div>
+        <div className="month-back">
              <Calendar
       localizer={localizer}
       events={events}
       titleAccessor='titulo'
       startAccessor="start"
       endAccessor="end"
-      style={{ height: 700 }}
       defaultView={Views.MONTH}
       onNavigate={() => console.log('data change ()next, prev')}
       onView={() => console.log('cambio de vista')}

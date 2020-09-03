@@ -1,0 +1,53 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
+.column{
+    color:$white;
+    float:left;
+    background-color: $skyblue;
+    width: 24%;
+}
+.table-second{
+    margin: 5px;
+}
+.table-column{
+    margin-left: 5%;
+    font-size: 13px;
+    margin-bottom: 3%;
+}
+.little-space{
+    background-color:$skyblue;
+}
+.container-column{
+    text-align: center;
+}
+h2{
+    color:$blue;
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+p{
+    font-size:12px;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+td{
+    background-color: #2a8eab;
+}
+
+.normal-font{
+    font-weight: normal;
+}
+.column-header{
+    color:$blue;
+    border-bottom: solid;
+}
+.btn-salir{
+    @include boton;
+    background-color: $blue;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
