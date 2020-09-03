@@ -98,7 +98,8 @@ export default function ReservedForm() {
                             date: value
                             }))}>
                         </InputCalendar>
-                        </div>
+                        {/* <input type="date" name="date" id='calendar' onChange={handleInputChange} required></input> */}
+                    </div>
                     <div>
                         <select name="reservedHour" className='inputDate' onChange={handleInputChange}>
                             {availableHours.map((hours) => <option value={hours}>
