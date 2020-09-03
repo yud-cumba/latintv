@@ -5,6 +5,7 @@ export default function InputPredictive(props) {
     const [ value, setValue ] = useState('');
     const { items } = props;
     const { pushValue } = props;
+    
     useEffect(() => {
         pushValue(value);     
     }, [value])

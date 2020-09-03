@@ -13,10 +13,10 @@ import InputPredictive from './InputPredictive';
 export default function ReservedForm() {
     //states
     const [ newSpace , setNewSpace] = useState({
+         product : '',
          date : '' ,
          reservedHour: '' , 
          program:'',
-         day: ''
     });
     const [programId, setProgramId] =useState('');
     const [availableHours, setAvailableHours] = useState([]);
