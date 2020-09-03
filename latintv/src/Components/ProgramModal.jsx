@@ -1,20 +1,23 @@
-// import React from 'react';
-// import './styles/ProgramModal.scss';
+import React from 'react';
+import './styles/ProgramModal.scss';
 
-// const ProgramModal = () => {
-//     return (
-//         <Header/>
-//             <a href='#modal' className="show-modal">Prueba para modal</a>
-//                 <aside id="modal" className="modal">
-//                     <div className="content-modal">
-//                         <header className="modal-header">
-//                             <a href='#' className="close-modal">X</a>
-//                         </header>
-//                         <div className="modal-body">
-//                         </div>
-//                     </div>
-//                         <a href="#" className="btn-close-modal"></a>
-//                 </aside>
-//     )
-// };
-// export default ProgramModal;
+const ProgramModal = (props) => {
+    const { data, show } = props;
+    return (
+        <React.Fragment>
+            {/* <Header/> */}
+            {/* <a href='#modal' className="show-modal">Prueba para modal</a> */}
+                {/* <aside id="modal" className="modal"> */}
+                <div className="pcontent-modal">
+                        <header className="pmodal-header">
+                            <h1>AQUI VA IMAGEN DE {data.title}</h1>
+                            <button className="pclose-modal" onClick ={ () => show(false)}>X</button>
+                            <p>Programa Aplicado: {data.title}</p>
+                        </header>
+                        <div className="pmodal-body">
+                        </div>
+                    </div>
+        </React.Fragment>
+    )
+};
+export default ProgramModal;

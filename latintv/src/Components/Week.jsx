@@ -13,8 +13,9 @@ const localizer = momentLocalizer(moment);
 //{MONTH: "month", WEEK: "week", WORK_WEEK: "work_week", DAY: "day", AGENDA: "agenda"}
 //array de eventos
   
-export default function Week() {
-    let history = useHistory();
+export default function Week(props) {
+    const { show, data } = props;
+    // let history = useHistory();
     const userId = 'A27rshHeq0eZGB7aJZnB';
     const [events, setEvents] = useState([]);
     console.log(events);
@@ -52,8 +53,8 @@ export default function Week() {
       onDrillDown={() => console.log('date header click semanal')}
       onRangeChange={() => console.log('cambio rango')}
       onSelectEvent={(event, e) => {
-          history.push('calendar#pmodal');
-          console.log(event)
+          show(true);
+          data(event);
         }} //clickea datos del select event
       onDoubleClickEvent={(event, e) => console.log('click 2 veces',event)}
       views={['month','week']}
