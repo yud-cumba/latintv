@@ -18,11 +18,11 @@ const recarga = (time, price) => {
     console.log(time.getHours())
     console.log(price);
     if((time.getHours())>12 && (time.getHours())<=16){
-        return price*0.05;
+        return [price*0.05, '5%'];
     } else if ((time.getHours())>16) {
-        return price*0.15;;
+        return [price*0.15, '15%'];;
     }
-    return '0.00';
+    return ['0.00', ''];
 }
 
 
@@ -33,11 +33,13 @@ const costProgramById = (programId ,userId, time) =>
            return getUser(userId)
            .then((user) => {
                const tarifaBase = parseInt(tarifaBasica(program.categoria, user.recognize));
-               const recargo = parseInt(recarga(time, tarifaBasica(program.categoria, user.recognize)));
+               const recargo = parseInt(recarga(time, tarifaBasica(program.categoria, user.recognize))[0]);
+               const percentage = recarga(time, tarifaBasica(program.categoria, user.recognize))[1];
                const igv = tarifaBasica(program.categoria, user.recognize)*0.18;
                return {
                tarifaBase,
                recargo,
+               percentage,
                igv,
                total: tarifaBase+recargo+igv
            }})

@@ -10,20 +10,23 @@ import getDay from "date-fns/getDay";
 import InputPredictive from './InputPredictive';
 
 
-export default function ReservedForm() {
+export default function ReservedForm(props) {
+    const { data } = props || {
+        product : '',
+        date : '' ,
+        reservedHour: '' , 
+        program:'',
+   };
+
     //states
-    const [ newSpace , setNewSpace] = useState({
-         product : '',
-         date : '' ,
-         reservedHour: '' , 
-         program:'',
-    });
+    console.log(data);
+    const [ newSpace , setNewSpace] = useState(data);
+    // const [edit, setedit] = useState(false);
     const [programId, setProgramId] =useState('');
     const [availableHours, setAvailableHours] = useState([]);
     const [availableDays, setAvailableDays] = useState([]);
     const [allPrograms, setAllPrograms] = useState([]);
     const [allProducts, setAllProducts] = useState([]);
-
     useEffect(()=>{
         const userId = 'A27rshHeq0eZGB7aJZnB';
         getUser(userId)
@@ -69,14 +72,18 @@ export default function ReservedForm() {
             <form>
                 <div className='inputProduct'>
                     <label for="product" className='nameInput'>Nombre del anunciante</label><br/>
-                    <InputPredictive items={allProducts} pushValue={(value) => setNewSpace(prevState => ({
+                    <InputPredictive items={allProducts}
+                    value={data.product} 
+                    pushValue={(value) => setNewSpace(prevState => ({
                             ...prevState,
                             product: value
                             }))}/>                       
                 </div>
                 <div className='inputProgram'>
                     <label for="program" className='nameInput'>Nombre del programa</label><br/>
-                    <InputPredictive items={allPrograms} pushValue={(value) => setNewSpace(prevState => ({
+                    <InputPredictive items={allPrograms}
+                    value={data.program} 
+                     pushValue={(value) => setNewSpace(prevState => ({
                             ...prevState,
                             program: value
                             }))}/>                      
@@ -87,7 +94,8 @@ export default function ReservedForm() {
                         <InputCalendar 
                             className='inputDate'
                             filterDate={filterDate} 
-                            name="date" 
+                            name="date"
+                            value={data.date}
                             dateValue={(value) => setNewSpace(prevState => ({
                             ...prevState,
                             date: value
@@ -96,7 +104,7 @@ export default function ReservedForm() {
                         {/* <input type="date" name="date" id='calendar' onChange={handleInputChange} required></input> */}
                     </div>
                     <div>
-                        <select name="reservedHour" className='inputDate' onChange={handleInputChange}>
+                        <select name="reservedHour" className='inputDate' value={data.reservedHour} onChange={handleInputChange}>
                             {availableHours.map((hours) => <option value={hours}>
                                 {`(${hours[0]}-${hours[1]})`}
                             </option>)}

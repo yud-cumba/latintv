@@ -1,5 +1,5 @@
 import React , { useState }from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory , Link } from 'react-router-dom';
 import { addReservedSpace, addSpaceToUser } from '../firebase/firestore'
 import Header from '../Components/Header';
 import costProgramById from '../Utils/costos';
@@ -28,9 +28,6 @@ const  VerifyPage = prop => {
         setTimeout(() => { 
             history.push('/calendar');
           }, 2000);
-    }
-    function editReserve (){
-        console.log('Editar ')
     }
 
 
@@ -61,7 +58,12 @@ const  VerifyPage = prop => {
                             </ol>
                             </div>
                             <footer className="modal-footer">
-                                <button className="edit-reserve-button" onClick={editReserve}>Editar Reserva</button>
+                                <Link className='btnVerificarReserva'
+                                    to={{
+                                        pathname: "/reserva",
+                                        state: {program, product, date: new Date(date), reservedHour},
+                                    }}
+                                >Editar Reserva</Link> 
                                 <button className="reserve-button" onClick={reserveSpace}>Aplicar Reserva</button>
                             </footer>
                         </div>

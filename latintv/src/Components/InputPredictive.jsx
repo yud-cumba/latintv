@@ -2,10 +2,11 @@ import  React, { useState, useEffect } from 'react';
 import ReactAutocomplete from 'react-autocomplete'
 
 export default function InputPredictive(props) {
-    const [ value, setValue ] = useState('');
+    const initValue = props.value || '';
+    const [ value, setValue ] = useState(initValue);
     const { items } = props;
-    const { pushValue } = props;
-    
+    const { pushValue} = props;
+
     useEffect(() => {
         pushValue(value);     
     }, [value])
