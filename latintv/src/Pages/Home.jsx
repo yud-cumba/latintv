@@ -35,7 +35,7 @@ const Home = () => {
                 </section>
             </div>
             <div className='Containersaludo'>
-                <section className='sectionSaludo'><p>“Por que pensamos en ti”</p></section>
+                <section className='sectionSaludo'><p>Bienvenido al área comercial de Latin TV</p></section>
                 <section><section className='sectionDescription'>Somos el tercer canal comercial del país y apuntamos a ser el primer canal de televisión en Perú. Queremos ofrecerte una plataforma que te permita seleccionar y comprar los espacios publicitarios en los programas con la audiencia que tu marca necesita.  Nuestro gran desafío es crecer contigo.</section></section><br/>
                 <section className='sectionValues'>
                     <section>Intuitiva</section>

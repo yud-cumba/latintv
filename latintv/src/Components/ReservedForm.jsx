@@ -11,8 +11,11 @@ import InputPredictive from './InputPredictive';
 import firebase from 'firebase/app';
 import 'firebase/firebase-auth'
 import { traerUsuarios } from '../firebase/firestore'
+import logo from '../Images/logo_forms.png'
+import { useHistory } from 'react-router-dom';
 
 const ReservedForm = (props) =>  {
+    let history = useHistory();
     const [ gmailUser, setgmailUser] = useState('');
     
     const [ dataUser, setdataUser ] = useState([]);
@@ -23,14 +26,12 @@ const ReservedForm = (props) =>  {
         program:'',
    };
 
-    //states
-    console.log(data);
     const [ newSpace , setNewSpace] = useState(data);
-   const [programId, setProgramId] =useState('');
-   const [availableHours, setAvailableHours] = useState([]);
-   const [availableDays, setAvailableDays] = useState([]);
-   const [allPrograms, setAllPrograms] = useState([]);
-   const [allProducts, setAllProducts] = useState([]);
+    const [programId, setProgramId] =useState('');
+    const [availableHours, setAvailableHours] = useState([]);
+    const [availableDays, setAvailableDays] = useState([]);
+    const [allPrograms, setAllPrograms] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -86,13 +87,14 @@ const ReservedForm = (props) =>  {
     return (
         <div className='containerForm'>
             <div className='divheaderForm'>
-                <div className='containerLogoForm'>Latin TV</div>
-                <div>Reserva su publicidad</div>
+                <div className='containerLogoForm'><img className='logoLatinTv' src ={logo} alt="Logo Latin TV"/></div>
+                <div>Reserva su publicidad - Área comercial</div>
             </div>
             <form>
                 <div className='inputProduct'>
                     <label for="product" className='nameInput'>Nombre del anunciante</label><br/>
-                    <InputPredictive items={allProducts}
+                    <InputPredictive
+                    items={allProducts}
                     value={data.product} 
                     pushValue={(value) => setNewSpace(prevState => ({
                             ...prevState,
@@ -101,7 +103,8 @@ const ReservedForm = (props) =>  {
                 </div>
                 <div className='inputProgram'>
                     <label for="program" className='nameInput'>Nombre del programa</label><br/>
-                    <InputPredictive items={allPrograms}
+                    <InputPredictive
+                    items={allPrograms}
                     value={data.program} 
                      pushValue={(value) => setNewSpace(prevState => ({
                             ...prevState,
@@ -121,7 +124,6 @@ const ReservedForm = (props) =>  {
                             date: value
                             }))}>
                         </InputCalendar>
-                        {/* <input type="date" name="date" id='calendar' onChange={handleInputChange} required></input> */}
                     </div>
                     <div>
                         <select name="reservedHour" className='inputDate' value={data.reservedHour} onChange={handleInputChange}>
@@ -133,7 +135,7 @@ const ReservedForm = (props) =>  {
                 </div>
             </form>
             <div className='sectionBotones'>
-                    <button className='btnCancelar' >Cancelar</button> 
+                    <button className='btnCancelar' onClick={()=>{history.push("/reserva")}} >Cancelar</button> 
                     <Link className='btnVerificarReserva'
                         to={{
                             pathname: "/verifica-tu-reserva",
