@@ -14,6 +14,7 @@ export default function InputCalendar(props) {
     const  { filterDate, dateValue }  = props;
     return (
         <DatePicker
+          dateFormat="dd/MM/yyyy"
           id="date"
           selected={dateClick}
           minDate={new Date()}

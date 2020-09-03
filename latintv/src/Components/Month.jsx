@@ -13,23 +13,27 @@ const localizer = momentLocalizer(moment);
 
 export default function Month() {
   const userId = 'A27rshHeq0eZGB7aJZnB';
-  const [events, setEvents] = useState([]);
-  useEffect(() => {
-      getUser(userId)
-          .then((user) =>  user.reservedSpacesId)
-          .then((arrayIds) => 
-              arrayIds.map((reservedSpaceId) =>
-                  getReservedSpace(reservedSpaceId)
-              ))
-          .then((array) => Promise.all(array))
-          .then((mySpaces) => mySpaces.map(space => ({
-              title: space.programName,
-              start: new Date(`${space.date} ${ space.reservedHour[0]}`),
-              end: new Date(`${space.date} ${ space.reservedHour[1]}`)
-          })))
-          .then((array) => setEvents(array))
-          
-  })
+    const [events, setEvents] = useState([]);
+    console.log(events);
+    useEffect(() => {
+        getUser(userId)
+            .then((user) =>  user.reservedSpacesId)
+            .then((arrayIds) => 
+                arrayIds.map((reservedSpaceId) =>
+                    getReservedSpace(reservedSpaceId)
+                ))
+            .then((array) => Promise.all(array))
+            .then((mySpaces) => mySpaces.map(space => {
+                const dateParts = (space.date).split('-');
+                const date = `${dateParts[1]}-${dateParts[0]}-${dateParts[2]}`
+                return{
+                    title: space.programName,
+                    start: new Date(`${date} ${ space.reservedHour[0]}`),
+                    end: new Date(`${ date} ${ space.reservedHour[1]}`)
+            }}))
+            .then((array) => setEvents(array))      
+    },[])
+    
     return (
         <div>
              <Calendar

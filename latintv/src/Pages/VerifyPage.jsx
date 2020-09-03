@@ -14,8 +14,7 @@ const  VerifyPage = prop => {
 
     
     function reserveSpace (){
-        alert('añadido con exito');
-        console.log(reservedHour);
+        console.log('hour',reservedHour);
         addReservedSpace(userId, programId,program, reservedHour.split(','), date)
         .then((data) => {
             addSpaceToUser(data.id, userId )
