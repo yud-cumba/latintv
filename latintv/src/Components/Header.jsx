@@ -7,11 +7,11 @@ const Header = () => {
     return (
         <header className='containerHeader'>
             <div className='containerLogo'>
-                <p>LATIN TV</p>
+                <p><Link className='linkHome' to={'/'}>LATIN TV</Link></p>
             </div>
             <div className='containerIniciarSesion'>
                 <section className='preguntasFrecuentes'><p><Link className='linkHome' to={'/'}>Preguntas frecuentes</Link></p></section>
-                <section className='iniciarSesion'><p><Link className='linkHome' to={'/'}>Iniciar sesión</Link></p></section>
+                <section className='iniciarSesion'><p><Link className='linkHome' to={'/login'}>Iniciar sesión</Link></p></section>
             </div>
         </header>
     )

@@ -5,12 +5,12 @@
 }
 
 .background-login{
-    background-image:url(./assets/back1.jpg);
+    background-image:url(../styles/assets/1.png);
     width:100vw;
     height:100vh;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-position: top;
+    background-repeat: round;
     transition: 1s;
 
     animation-name: animate;
@@ -24,17 +24,17 @@
 
 @keyframes animate{
     0%{
-        background-image: url(./assets/back1.jpg);
+        background-image: url(../styles/assets/1.png);
     }20%{
-        background-image: url(./assets/back2.jpg);
+        background-image: url(../styles/assets/2.png);
     }40%{
-        background-image: url(./assets/back3.jpg);
+        background-image: url(../styles/assets/3.png);
     }60%{
-        background-image: url(./assets/back4.jpg);
+        background-image: url(../styles/assets/4.png);
     }80%{
-        background-image: url(./assets/back5.jpg);
+        background-image: url(../styles/assets/5.png);
     }100%{
-        background-image: url(./assets/back6.jpg);
+        background-image: url(../styles/assets/6.png);
     }
 }
 
@@ -67,11 +67,12 @@
 .login-form{
     box-sizing: border-box;
     font-size: 10px;
-    color:$blue;
+    color: $blue;
+    text-align: center;
 }
 .login-select{
     width: 200px;
-    background-color: #E5E5E5;
+    background-color: $white;
     border-width: THIN;
 }
 .login-button{

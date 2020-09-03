@@ -36,14 +36,29 @@ const  VerifyPage = prop => {
                     <aside id="modal" className="modal">
                         <div className="content-modal">
                             <header className="modal-header">
-                                <a href='#' className="close-modal">X</a>
+                            <h3>Verifique los datos ingresados</h3>
+                            <a href='#' className="close-modal">X</a>
                             </header>
-                            Verifique los datos cargados
-                            <h1>{date}</h1>
-                            <h1>{program}</h1>
-                            <h1>{reservedHour}</h1>
-                            <button onClick={editReserve}>Editar Reserva</button>
-                            <button onClick={reserveSpace}>Aplicar Reserva</button>
+                            <div className="modal-body">
+                            <ol>
+                            <li value="1">Producto reservado: {date}</li>
+                            <li>Programa aplicado: {program}</li>
+                            <li>Fecha: </li>
+                            <li>Hora: {reservedHour}</li>
+                            <li>Detalle de Pago:<ul>
+                                <li>Tarifa Básica:</li>
+                                <li>Recargo 5%:</li>
+                                <li>Auspicio:</li>
+                                <li>IGV 18%:</li>
+                                <li>Monto Total:</li>
+                                </ul>
+                                </li>
+                            </ol>
+                            </div>
+                            <footer className="modal-footer">
+                            <button className="edit-reserve-button" onClick={editReserve}>Editar Reserva</button>
+                            <button className="reserve-button" onClick={reserveSpace}>Aplicar Reserva</button>
+                            </footer>
                         </div>
                         <a href="#" className="btn-close-modal"></a>
                     </aside>
