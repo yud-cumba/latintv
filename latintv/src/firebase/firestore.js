@@ -1,5 +1,4 @@
 import db from '../ConexionFirebase';
-import firebase from 'firebase/app';
 import 'firebase/firebase-auth'
 
 export const getData = (collectionName) => db.collection(collectionName)

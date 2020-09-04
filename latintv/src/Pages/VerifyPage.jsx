@@ -8,15 +8,18 @@ import { useEffect } from 'react';
 
 const  VerifyPage = prop => {
     let history = useHistory();
-    const [ data, setData ] = useState((prop.location && prop.location.state) || {})
+
+    const [data, setData] = useState((prop.location && prop.location.state) || {});
     const {date ,
     product,
     programId, 
     reservedHour, program} = data;
+
     const [costos, setCostos] = useState({})
     const userId = 'A27rshHeq0eZGB7aJZnB';
     
     useEffect(() => {
+        setData(data);
         costProgramById(programId, userId, new Date())
             .then((costo) => setCostos(costo));
     }, [])
@@ -25,9 +28,7 @@ const  VerifyPage = prop => {
         .then((data) => {
             addSpaceToUser(data.id, userId )
         });
-        setTimeout(() => { 
             history.push('/calendar');
-          }, 2000);
     }
 
 
@@ -61,7 +62,7 @@ const  VerifyPage = prop => {
                                 <Link className='btnVerificarReserva'
                                     to={{
                                         pathname: "/reserva",
-                                        state: {program, product, date: new Date(date), reservedHour},
+                                        state: {program, product},
                                     }}
                                 >Editar Reserva</Link> 
                                 <button className="reserve-button" onClick={reserveSpace}>Aplicar Reserva</button>
