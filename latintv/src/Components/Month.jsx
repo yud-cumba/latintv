@@ -15,7 +15,6 @@ const localizer = momentLocalizer(moment);
 export default function Month() {
   const userId = 'A27rshHeq0eZGB7aJZnB';
     const [events, setEvents] = useState([]);
-    console.log(events);
     useEffect(() => {
         getUser(userId)
             .then((user) =>  user.reservedSpacesId)
@@ -44,19 +43,8 @@ export default function Month() {
       startAccessor="start"
       endAccessor="end"
       defaultView={Views.MONTH}
-      onNavigate={() => console.log('data change ()next, prev')}
-      onView={() => console.log('cambio de vista')}
-      onDrillDown={() => console.log('date header click semanal')}
-      onRangeChange={() => console.log('cambio rango')}
-      onSelectEvent={(event, e) => console.log(event,e)} //clickea datos del select event
-      onDoubleClickEvent={(event, e) => console.log('click 2 veces',event,e)}
       views={['month', 'week']}
-    //   views={{
-    //     month: true,
-    //     week: false,
-    //     day :true,
-    //     myweek: Prueba,
-    //   }}
+
       popup
       messages={{
         next: "sig",

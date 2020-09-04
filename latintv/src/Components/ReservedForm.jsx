@@ -7,49 +7,25 @@ import InputCalendar from './InputCalendar';
 import weekToNumber from '../Utils/weekConverter'
 import getDay from "date-fns/getDay";
 import InputPredictive from './InputPredictive';
-import firebase from 'firebase/app';
-import 'firebase/firebase-auth'
-import { traerUsuarios } from '../firebase/firestore'
 import logo from '../Images/logo_forms.png'
 import { useHistory } from 'react-router-dom';
 
 const ReservedForm = (props) =>  {
     let history = useHistory();
-    // const [ gmailUser, setgmailUser] = useState('');
-    
-    // const [ dataUser, setdataUser ] = useState([]);
     const { data } = props
-    console.log(data);
     const [ newSpace , setNewSpace] = useState(data);
-   const [programId, setProgramId] =useState('');
-   const [availableHours, setAvailableHours] = useState([]);
-   const [availableDays, setAvailableDays] = useState([]);
-   const [allPrograms, setAllPrograms] = useState([]);
-   const [allProducts, setAllProducts] = useState([]);
+    const [programId, setProgramId] =useState('');
+    const [availableHours, setAvailableHours] = useState([]);
+    const [availableDays, setAvailableDays] = useState([]);
+    const [allPrograms, setAllPrograms] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
 
-    useEffect(() => {
-        // firebase.auth().onAuthStateChanged((user) => {
-        //     if (user) {
-        //         setgmailUser(user.email);
-        //     }
-        // });
-        // traerUsuarios((data)=>{
-        //     setdataUser(data);
-        // });
-        // const id = dataUser.map((dat) => {
-        //     if(dat.data.email === gmailUser){
-        //         return dat.id;
-                
-        //     }
-        // })
-        // const userId = id[0]        
-         const userId = 'A27rshHeq0eZGB7aJZnB';
-        // if(userId != undefined || userId != null){
+    useEffect(() => {      
+        const userId = 'A27rshHeq0eZGB7aJZnB';
             getUser(userId)
                 .then((user) => {
                     setAllProducts((user.products).map(product => ({ id: product, label: product})));
             });
-        // }
         getAllData((programs) => {
             setAllPrograms(programs.map(program => ({ id: program.nombre, label: program.nombre})));
             const programTv = programs.filter((program) => program.nombre === newSpace.program);
@@ -64,7 +40,6 @@ const ReservedForm = (props) =>  {
 
     function filterDate (date) {
             const day = getDay(date);
-                
             return weekToNumber(availableDays).includes(day);
           };
     
@@ -75,8 +50,6 @@ const ReservedForm = (props) =>  {
           [name]: value
         }));
       };
-    
-    console.log(newSpace);
     return (
         <div className='containerForm'>
             <div className='divheaderForm'>
@@ -128,8 +101,8 @@ const ReservedForm = (props) =>  {
                 </div>
             </form>
             <div className='sectionBotones'>
-                    <button className='btnCancelar' onClick={()=>{history.push("/reserva")}} >Cancelar</button> 
-                    <Link className='btnVerificarReserva'
+                    <button className='btnCancelarForm' onClick={()=>{history.push("/")}} >Cancelar</button> 
+                    <Link className='btnVerificarReservaForm'
                         to={{
                             pathname: "/verifica-tu-reserva",
                             state: {...newSpace, programId},

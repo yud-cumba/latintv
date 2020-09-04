@@ -24,10 +24,6 @@
     font-size: 1rem;
     color: $white;
 }
-.preguntasFrecuentes{
-    @include definirAnchoAlto(20%, 100%);
-    @include justifyItems(center);
-}
 .iniciarSesion{
     @include definirAnchoAlto(10%, 100%);
     @include justifyItems(center);

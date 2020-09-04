@@ -13,12 +13,11 @@ const ProgramModal = (props) => {
             setImg(programTv[0].img);
          }, 'tvprograms');
     }, []);
-    console.log(img);
     return (
         <React.Fragment>
                 <aside className="pmodal">
                         <div className="content-pmodal">
-                            <img src={img} />
+                            <img src={img} className='imageProgram' alt='programModal' />
                             <button className="close-pmodal" onClick ={ () => show(false)}>X</button>
                             <p>Programa Aplicado: {data.title}</p>
                         </div>

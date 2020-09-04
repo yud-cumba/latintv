@@ -30,10 +30,8 @@ const Login = () => {
               <button type="submit" value="Login" className="login-button" onClick={()=>{
                     signIn(email, password)
                     .then((result) => {
-                            if (result.user.emailVerified === false) {
-                              console.log('correo no verificado');
-                            } else {
-                            history.push("/reserva");
+                            if (result.user.emailVerified === true) {
+                              history.push("/reserva");
                             }
                     });
               }}>Ingresar</button>

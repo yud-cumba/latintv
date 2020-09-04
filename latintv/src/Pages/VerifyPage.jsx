@@ -1,7 +1,7 @@
 import React , { useState }from 'react'
 import { useHistory , Link } from 'react-router-dom';
 import { addReservedSpace, addSpaceToUser } from '../firebase/firestore'
-import Header from '../Components/Header';
+import HeaderUserLogue from '../Components/HeaderUserLogue'
 import costProgramById from '../Utils/costos';
 import './styles/VerifyPage.scss'
 import { useEffect } from 'react';
@@ -34,42 +34,38 @@ const  VerifyPage = prop => {
 
     return (
         <div className='back-modal'>
-            <Header/>
-                <a href='#modal' className="show-modal">Prueba para modal</a>
-                    <aside id="modal" className="modal">
-                        <div className="content-modal">
-                            <header className="modal-header">
-                                <h3>Verifique los datos ingresados</h3>
-                                <a href='#' className="close-modal">X</a>
-                            </header>
-                            <div className="modal-body">
-                            <ol>
+            <HeaderUserLogue/>
+            <div id="modal" className="modal">
+                <div className="content-modal">
+                    <div className="modal-header"><section className='verificarDatos'>Verifique los datos ingresados</section></div>
+                    <div className="modal-body">
+                        <ol className='conteinerModal'>
                             <li value="1">Producto reservado: {product}</li>
                             <li>Programa aplicado: {program}</li>
                             <li>Fecha del espacio reservado:: {date}</li>
                             <li>Horario del programa: {`${reservedHour}`}</li>
                             <li>Hora de reserva: {`${(new Date()).getHours()}:${(new Date()).getMinutes()} ${(costos.recargo)? `- aplica recargo ${costos.percentage}`: ''}`}</li>
-                            <li>Detalle de Pago:<ul>
-                                <li>Tarifa Básica:  US$ {costos.tarifaBase}.00`</li>
-                                <li>Recargo {costos.percentage}:     US$  {costos.recargo}.00'</li>
-                                <li>IGV 18%:        US$  {costos.igv}.00'</li>
-                                <li>Monto Total:    US$ {costos.total}.00</li>
+                            <li>Detalle de Pago:
+                                <ul>
+                                    <li>Tarifa Básica:  US$ {costos.tarifaBase}.00`</li>
+                                    <li>Recargo {costos.percentage}:     US$  {costos.recargo}.00'</li>
+                                    <li>IGV 18%:        US$  {costos.igv}.00'</li>
+                                    <li>Monto Total:    US$ {costos.total}.00</li>
                                 </ul>
-                                </li>
-                            </ol>
-                            </div>
-                            <footer className="modal-footer">
-                                <Link className='btnVerificarReserva'
-                                    to={{
-                                        pathname: "/reserva",
-                                        state: {program, product},
-                                    }}
-                                >Editar Reserva</Link> 
-                                <button className="reserve-button" onClick={reserveSpace}>Aplicar Reserva</button>
-                            </footer>
-                        </div>
-                            <a href="#" className="btn-close-modal"></a>
-                    </aside>
+                            </li>
+                        </ol>
+                    </div>
+                    <div className="modal-footer">
+                        <Link className='btnVerificarReserva'
+                            to={{
+                                pathname: "/calendar",
+                                state: {program, product},
+                            }}
+                        >Editar Reserva</Link> 
+                        <button className="reserveButton" onClick={reserveSpace}>Aplicar Reserva</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

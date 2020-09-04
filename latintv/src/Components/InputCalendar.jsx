@@ -4,11 +4,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function InputCalendar(props) {
-    // const filterDate  = date => {
-    //     const day = getDay(date);
-    //         console.log(date)
-    //     return day !== 0 && day !== 6;
-    //   };
     const  { filterDate, dateValue }  = props;
     const initValue = props.value || new Date();
     const [dateClick, setDate] = useState(initValue);

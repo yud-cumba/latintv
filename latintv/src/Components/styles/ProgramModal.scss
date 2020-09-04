@@ -29,7 +29,8 @@
     position: sticky;
     left: 50%;
     transition: top 0.35s ease;
-    margin-left: -250px;
+    margin-left: -100px;
+    margin-top: -100px;
     background: #ffff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
@@ -37,6 +38,10 @@
 }
 .pmodal a:hover{
     color:$orange;
+}
+.imageProgram{
+    width: 500px;
+    height: 250px;
 }
 
 // .pmodal:target{

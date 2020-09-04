@@ -7,7 +7,7 @@ const CalendarColumn = () => {
         <div className="column">
             <div className="container-column">
                 <h2 className="main-title-column">Calendario de Reserva</h2>
-                <Month/>
+                <Month/><br/>
                 <div className="table-second">
                 <p className="titulo-column">PUBLICIDAD INGRESADA</p>
                 <p className="titulo-column">Semana del 30 al 05</p>

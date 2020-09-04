@@ -1,6 +1,5 @@
 const hourIntervales = (horario) => {
     const numberIntervales = Math.floor((horario[1]-horario[0])*6); // min/10
-    // console.log(numberIntervales);
     const hours = (Array.from(Array(numberIntervales).keys())).map((i) => {
         const hour = Math.floor(horario[0]);
         const minutes = ((horario[0]-hour)*60)+(i*10);

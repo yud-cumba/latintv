@@ -8,8 +8,7 @@ export default function ReservedPage(prop) {
     return (
         <div className='containerReservedPage'>
             <HeaderUserLogue/>
-            <div className='containerReserved'><ReservedForm data={data}/></div>
-            
+            <div className='containerReserved'><ReservedForm data={data}/></div>   
         </div>
     )
 }

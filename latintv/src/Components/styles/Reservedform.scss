@@ -76,13 +76,13 @@ form{
 a:link, a:visited, a:active {
     text-decoration:none;
 }
-.btnVerificarReserva{
-    @include definirColores($skyblue, $white);
-}
-.btnCancelar{
+.btnVerificarReservaForm{
     @include definirColores($orange, $white);
 }
-.btnVerificarReserva, .btnCancelar{
+.btnCancelarForm{
+    @include definirColores($skyblue, $white);
+}
+.btnVerificarReservaForm, .btnCancelarForm{
     width: 35%;
     border: 0;
     padding: 1%;
@@ -90,6 +90,12 @@ a:link, a:visited, a:active {
     border-radius: 15px;
     text-align: center;
 }
-.inputDate, .btnVerificarReserva, .btnCancelar :focus {
-    outline: none;
+.inputDate:focus {outline: none;}
+.btnVerificarReservaForm:focus {outline: none;}
+.btnCancelarForm :focus {outline: none;}
+.autoComplete{
+    background: #F1EBEB;
+    color: $blue;
+    margin: 3px;
+    border-bottom: 1px solid #DBDBDB;
 }

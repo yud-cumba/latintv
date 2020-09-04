@@ -7,17 +7,10 @@ import './styles/Week.scss';
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
-
-// views:
-//{MONTH: "month", WEEK: "week", WORK_WEEK: "work_week", DAY: "day", AGENDA: "agenda"}
-//array de eventos
-  
 export default function Week(props) {
     const { show, data } = props;
-    // let history = useHistory();
     const userId = 'A27rshHeq0eZGB7aJZnB';
     const [events, setEvents] = useState([]);
-    console.log(events);
     useEffect(() => {
         getUser(userId)
             .then((user) =>  user.reservedSpacesId)
@@ -37,37 +30,30 @@ export default function Week(props) {
             .then((array) => setEvents(array))
             
     },[])
-    events.map((e) => console.log(e.start));
-    console.log(localizer);
     return (
         <div className="week-back">
              <Calendar
-      localizer={localizer}
-      events={events}
-      titleAccessor='titulo'
-      startAccessor="start"
-      endAccessor="end"
-      defaultView={Views.WEEK}
-      onNavigate={() => console.log('data change ()next, prev')}
-      onView={() => console.log('cambio de vista')}
-      onDrillDown={() => console.log('date header click semanal')}
-      onRangeChange={() => console.log('cambio rango')}
-      onSelectEvent={(event, e) => {
-          show(true);
-          data(event);
-        }} //clickea datos del select event
-      onDoubleClickEvent={(event, e) => console.log('click 2 veces',event)}
-      views={['month','week']}
-      popup
-      messages={{
-        next: "sig",
-        previous: "ant",
-        today: "Hoy",
-        month: "Mes",
-        week: "Semana",
-        day: "Día"
-      }}
-    />
+                localizer={localizer}
+                events={events}
+                titleAccessor='titulo'
+                startAccessor="start"
+                endAccessor="end"
+                defaultView={Views.WEEK}
+                onSelectEvent={(event, e) => {
+                    show(true);
+                    data(event);
+                    }}
+                views={['month','week']}
+                popup
+                messages={{
+                    next: "sig",
+                    previous: "ant",
+                    today: "Hoy",
+                    month: "Mes",
+                    week: "Semana",
+                    day: "Día"
+                }}
+            />
         </div>
     )
 }

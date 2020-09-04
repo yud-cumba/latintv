@@ -9,11 +9,7 @@ export default function InputPredictive(props) {
     const { pushValue} = props;
     useEffect(() => {
       pushValue(value);
-      // return () => {
-      //   cleanup
-      // }
-      console.log('hola')
-    }, [value ])     
+    }, [value]);     
 
     return (
         <ReactAutocomplete
@@ -22,9 +18,9 @@ export default function InputPredictive(props) {
           shouldItemRender={(item, val) => item.label.toLowerCase().indexOf(val.toLowerCase()) > -1}
           getItemValue={item => item.label}
           renderItem={(item, highlighted) =>
-            <div
+            <div className='autoComplete'
               key={`${item.id}`}
-              style={{ backgroundColor: highlighted ? '#eee' : 'transparent'}}
+              // style={{ backgroundColor: highlighted ? '#eee' : 'transparent'}}
             >
               {item.label}
             </div>

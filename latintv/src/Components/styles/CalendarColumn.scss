@@ -2,6 +2,7 @@
 @import '../../global-sass/variables.scss';
 
 .column{
+    height: 100%;
     color:$white;
     float:left;
     background-color: $skyblue;
@@ -19,6 +20,7 @@
     background-color:$skyblue;
 }
 .container-column{
+    height: 100%;
     text-align: center;
 }
 .main-title-column{
@@ -50,6 +52,7 @@ td{
     font-weight: bold;
     padding-left: 20px;
     padding-right: 20px;
+    margin-bottom: auto;
 }
 .rbc-event{
     background-color: $orange;

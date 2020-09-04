@@ -1,122 +1,89 @@
 @import '../../global-sass/estilosCompartidos';
 @import '../../global-sass/variables.scss';
 
+html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+  }
 .back-modal{
     @include definirAnchoAlto(100%, 100%);
     background-image: url('../../Images/fondo.png');
 }
-
-.show-modal{
-    text-align: center;
-    background-color: $blue;
-    top:20px;
-    padding:15px 15px;
-    color:$white;
-    font-size: 10px;
-    font-weight:1.5em;
-    border-radius: 3.5px;
-    text-decoration:none;
-    transition: all 0.15s linear;
-}
-.show-modal:hover{
-    cursor:pointer;
-    background:$orange;
-}
-
 .modal{
-    position: fixed;
-    top:-100vh;
-    left:0;
-    z-index:99999999;
-    background-color: rgba(0, 52, 89, 0.85);
-    width:100vw;
-    height:100vh;
-    opacity:0;
-    transition:opacity 0.35s ease;
-        .content-modal{
-            width:100%;
-            max-width:500px;
-            position: fixed;
-            left:50%;
-            top: -100vh;
-            transition: top 0.35s ease;
-            margin-left:-250px;
-            background:$white;
-            box-shadow:0 1px 2px rgba(0,0,0,0.1);
-            border-radius:15px;
-            z-index:9999999;
-        }
+    width:100%;
+    height:90%;     
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    justify-items: center;    
+}
+.content-modal{
+    width:30%;
+    height: 70%;
+    background:$white;
+    border-radius: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .modal-header{
-    color:$blue;
-    padding: 20px;
-    padding-bottom: 40px;
-    height: 20px;
-    background-color: $white;
-    border-bottom-color: $orange;
-    border-bottom: solid;
-    text-align: center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    width: 100%;
+    height: 15%;
+    border-bottom: solid 1px $blue;
+    display: flex;
+    justify-content: center;
 }
-.close-modal{
-    color: $skyblue;
-    position: absolute;
-    top:0.2em;
-    right:0.375em;
-    margin:0;
-    padding:5px;
+.verificarDatos{
+    width: 60%;
+    color: $blue;
+    font-size: 1rem;
     font-weight: bold;
-    font-size:1.5em;
-}
-.modal a:hover{
-    color: $orange;
-}
-.modal:target{
-    opacity:1;
-    top:0;
-}
-
-.modal:target .content-modal{
-    top:80px;
-    transition: top 0.35s ease;
-}
-@media (max-width:500px){
-    .modal {
-        .content-modal{
-            width: 90%;
-            max-width:none;
-            left: 5%;
-            margin-left:0;
-        }
-    }
-
-}
-
-.edit-reserve-button{
-    @include boton;
-    background-color: $blue;
-    padding: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.reserve-button{
-    @include boton;
-    padding: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.modal-footer{
-    text-align: center;
-    padding: 15px;
+    margin: auto auto 0 auto;
 }
 .modal-body{
-    font-size: 13px;
-    margin-left: 80px;
-    margin-right: 80px;
-    color:$blue;
+    width: 100%;
+    height: 60%;
+    color: $blue;
+    font-size: 0.9rem;
+    line-height: 1.5rem; 
 }
+.conteinerModal{
+    width: 70%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+ul {
+    list-style: none;
+}
+.modal-footer{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btnVerificarReserva{
+    width: 35%;
+    background-color: $blue;
+    color: $white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    border: 0;
+    font-size: 1rem;
+    padding: 2%;
+}
+.reserveButton{
+    width: 35%;
+    background: $orange;
+    color: $white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    border: 0;
+    font-size: 1rem;
+    padding: 2%;
+}
+

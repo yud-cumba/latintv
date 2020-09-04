@@ -82,7 +82,10 @@ table{
     justify-content: space-around;
     margin: 4% 0 4% 0;
 }
-.btnCancelarReserva, .btnSolicitarReserva :focus {
+.btnCancelarReserva:focus {
+    outline: none;
+}
+.btnSolicitarReserva:focus {
     outline: none;
 }
 .btnCancelarReserva{

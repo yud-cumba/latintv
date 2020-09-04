@@ -12,7 +12,6 @@ const HeaderUserLogue = () => {
                 <Link className='linkHome' to={'/'}><img className='logoLatinTv' src ={logo} alt="Logo Latin TV"/></Link>
             </div>
             <div className='containerIniciarSesion'>
-                <section className='preguntasFrecuentes'><p><Link className='linkHome' to={'/'}>Preguntas frecuentes</Link></p></section>
                 <section className='iniciarSesion'><p><Link className='linkHome' onClick={()=>{
                     signOut();
                 }} to={'/'}>Cerrar sesión</Link></p></section>
