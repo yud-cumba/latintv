@@ -18,7 +18,7 @@ const Table = ({tarifa, data, precio, tafiraData}) => {
                                 {data.map((dat, Key) => {
                                     if(dat.data.categoria === tafiraData && dat.data.dias.length === 5){
                                             return(
-                                                <tr key={Key} className='rowTable'>
+                                                <tr key={`${Key}-${dat}`} className='rowTable'>
                                                     <td className='elementTable1'>{dat.data.tiempo}</td>
                                                     <td className='elementTable1'>{dat.data.nombre}</td>
                                                     <td className='elementTable1'>{dat.data.target}</td>                                            

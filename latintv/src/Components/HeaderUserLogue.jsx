@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './styles/Header.scss';
 import logo from '../Images/logo_forms.png';
-import firebase from 'firebase/app';
 import 'firebase/firebase-auth'
 import {signOut} from '../firebase/auth'
 

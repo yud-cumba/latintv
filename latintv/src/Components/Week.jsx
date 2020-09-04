@@ -4,7 +4,6 @@ import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { getUser, getReservedSpace } from '../firebase/firestore'
 import './styles/Week.scss';
-import { useHistory } from 'react-router-dom'
 require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
@@ -39,6 +38,7 @@ export default function Week(props) {
             
     },[])
     events.map((e) => console.log(e.start));
+    console.log(localizer);
     return (
         <div className="week-back">
              <Calendar
