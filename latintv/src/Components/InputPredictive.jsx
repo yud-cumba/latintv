@@ -1,4 +1,4 @@
-import  React, { useState, useEffect } from 'react';
+import  React, { useState , useEffect } from 'react';
 import ReactAutocomplete from 'react-autocomplete'
 import './styles/Reservedform.scss'
 
@@ -7,10 +7,13 @@ export default function InputPredictive(props) {
     const [ value, setValue ] = useState(initValue);
     const { items } = props;
     const { pushValue} = props;
-
     useEffect(() => {
-        pushValue(value);     
-    }, [value])
+      pushValue(value);
+      // return () => {
+      //   cleanup
+      // }
+      console.log('hola')
+    }, [value ])     
 
     return (
         <ReactAutocomplete
@@ -20,7 +23,7 @@ export default function InputPredictive(props) {
           getItemValue={item => item.label}
           renderItem={(item, highlighted) =>
             <div
-              key={item.id}
+              key={`${item.id}`}
               style={{ backgroundColor: highlighted ? '#eee' : 'transparent'}}
             >
               {item.label}

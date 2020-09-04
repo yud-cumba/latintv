@@ -1,8 +1,7 @@
 import React, {useState , useEffect} from 'react'
 import { Link } from 'react-router-dom';
-import {getReservedSpac, addNewSpace, getUser, getAllData} from '../firebase/firestore'
-import './styles/Reservedform.scss'
-import currentDate from '../Utils/currentDate';
+import { getUser, getAllData} from '../firebase/firestore'
+import './styles/Reservedform.scss';
 import hourIntervales from '../Utils/availableHours'
 import InputCalendar from './InputCalendar';
 import weekToNumber from '../Utils/weekConverter'
@@ -16,46 +15,41 @@ import { useHistory } from 'react-router-dom';
 
 const ReservedForm = (props) =>  {
     let history = useHistory();
-    const [ gmailUser, setgmailUser] = useState('');
+    // const [ gmailUser, setgmailUser] = useState('');
     
-    const [ dataUser, setdataUser ] = useState([]);
-    const { data } = props || {
-        product : '',
-        date : '' ,
-        reservedHour: '' , 
-        program:'',
-   };
-
+    // const [ dataUser, setdataUser ] = useState([]);
+    const { data } = props
+    console.log(data);
     const [ newSpace , setNewSpace] = useState(data);
-    const [programId, setProgramId] =useState('');
-    const [availableHours, setAvailableHours] = useState([]);
-    const [availableDays, setAvailableDays] = useState([]);
-    const [allPrograms, setAllPrograms] = useState([]);
-    const [allProducts, setAllProducts] = useState([]);
+   const [programId, setProgramId] =useState('');
+   const [availableHours, setAvailableHours] = useState([]);
+   const [availableDays, setAvailableDays] = useState([]);
+   const [allPrograms, setAllPrograms] = useState([]);
+   const [allProducts, setAllProducts] = useState([]);
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                setgmailUser(user.email);
-            }
-        });
-        traerUsuarios((data)=>{
-            setdataUser(data);
-        });
-        const id = dataUser.map((dat) => {
-            if(dat.data.email === gmailUser){
-                return dat.id;
+        // firebase.auth().onAuthStateChanged((user) => {
+        //     if (user) {
+        //         setgmailUser(user.email);
+        //     }
+        // });
+        // traerUsuarios((data)=>{
+        //     setdataUser(data);
+        // });
+        // const id = dataUser.map((dat) => {
+        //     if(dat.data.email === gmailUser){
+        //         return dat.id;
                 
-            }
-        })
-        const userId = id[0]        
-        // const userId = 'A27rshHeq0eZGB7aJZnB';
-        if(userId != undefined || userId != null){
+        //     }
+        // })
+        // const userId = id[0]        
+         const userId = 'A27rshHeq0eZGB7aJZnB';
+        // if(userId != undefined || userId != null){
             getUser(userId)
                 .then((user) => {
                     setAllProducts((user.products).map(product => ({ id: product, label: product})));
             });
-        }
+        // }
         getAllData((programs) => {
             setAllPrograms(programs.map(program => ({ id: program.nombre, label: program.nombre})));
             const programTv = programs.filter((program) => program.nombre === newSpace.program);
@@ -66,7 +60,6 @@ const ReservedForm = (props) =>  {
             setAvailableHours(hourIntervales(horario));
             setProgramId(programTvId);
          },'tvprograms')
-
     },[newSpace]);
 
     function filterDate (date) {
@@ -83,7 +76,7 @@ const ReservedForm = (props) =>  {
         }));
       };
     
-    // console.log(newSpace);
+    console.log(newSpace);
     return (
         <div className='containerForm'>
             <div className='divheaderForm'>
@@ -92,7 +85,7 @@ const ReservedForm = (props) =>  {
             </div>
             <form>
                 <div className='inputProduct'>
-                    <label for="product" className='nameInput'>Nombre del anunciante</label><br/>
+                    <label htmlFor="product" className='nameInput'>Nombre del anunciante</label><br/>
                     <InputPredictive
                     items={allProducts}
                     value={data.product} 
@@ -102,7 +95,7 @@ const ReservedForm = (props) =>  {
                             }))}/>                       
                 </div>
                 <div className='inputProgram'>
-                    <label for="program" className='nameInput'>Nombre del programa</label><br/>
+                    <label htmlFor="program" className='nameInput'>Nombre del programa</label><br/>
                     <InputPredictive
                     items={allPrograms}
                     value={data.program} 
@@ -127,7 +120,7 @@ const ReservedForm = (props) =>  {
                     </div>
                     <div>
                         <select name="reservedHour" className='inputDate' value={data.reservedHour} onChange={handleInputChange}>
-                            {availableHours.map((hours) => <option value={hours}>
+                            {availableHours.map((hours, i) => <option key={`${i}-${hours}`} value={hours}>
                                 {`(${hours[0]}-${hours[1]})`}
                             </option>)}
                         </select>

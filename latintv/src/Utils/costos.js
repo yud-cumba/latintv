@@ -11,6 +11,8 @@ const tarifaBasica = (categorie , recognize) => {
             return prices[1];
         case 'super prime':
             return prices[2];
+        default:
+            return prices[0];
     }
 }
 

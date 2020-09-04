@@ -8,38 +8,44 @@ import { useEffect } from 'react';
 
 const  VerifyPage = prop => {
     let history = useHistory();
-    const [ data, setData ] = useState((prop.location && prop.location.state) || {})
+
+    const [data, setData] = useState((prop.location && prop.location.state) || {});
     const {date ,
     product,
     programId, 
     reservedHour, program} = data;
+
     const [costos, setCostos] = useState({})
     const userId = 'A27rshHeq0eZGB7aJZnB';
     
     useEffect(() => {
+        setData(data);
         costProgramById(programId, userId, new Date())
             .then((costo) => setCostos(costo));
     }, [])
     function reserveSpace (){
-        addReservedSpace(userId, programId,program, reservedHour.split(','), date)
+        addReservedSpace(userId, programId,program, reservedHour.split(','), date, costos.total)
         .then((data) => {
             addSpaceToUser(data.id, userId )
         });
-        setTimeout(() => { 
-            history.push('/calendar');
-          }, 2000);
+        const dateParts = date.split('-');
+        const datee = `${dateParts[1]}-${dateParts[0]}-${dateParts[2]}`
+        history.push({
+                    pathname: '/calendar',
+                    state: { datee },
+               })
     }
 
 
     return (
         <div className='back-modal'>
             <Header/>
-                <a href='#modal' className="show-modal">Prueba para modal</a>
-                    <aside id="modal" className="modal">
-                        <div className="content-modal">
+                {/* <a href='#modal' className="show-modal">Prueba para modal</a> */}
+                    {/* <aside id="modal" className="modal show-modal"> */}
+                        <div id="modal" >
                             <header className="modal-header">
                                 <h3>Verifique los datos ingresados</h3>
-                                <a href='#' className="close-modal">X</a>
+                                {/* <a href='#' className="close-modal">X</a> */}
                             </header>
                             <div className="modal-body">
                             <ol>
@@ -61,14 +67,14 @@ const  VerifyPage = prop => {
                                 <Link className='btnVerificarReserva'
                                     to={{
                                         pathname: "/reserva",
-                                        state: {program, product, date: new Date(date), reservedHour},
+                                        state: {program, product},
                                     }}
                                 >Editar Reserva</Link> 
                                 <button className="reserve-button" onClick={reserveSpace}>Aplicar Reserva</button>
                             </footer>
                         </div>
-                            <a href="#" className="btn-close-modal"></a>
-                    </aside>
+                            {/* <a href="#" className="btn-close-modal"></a> */}
+                    {/* </aside> */}
         </div>
     )
 }

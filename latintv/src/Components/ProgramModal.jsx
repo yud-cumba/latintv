@@ -1,17 +1,25 @@
-import React from 'react';
+import React , { useState }from 'react';
 import './styles/ProgramModal.scss';
+import { useEffect } from 'react';
+import { getAllData } from '../firebase/firestore'
 
 const ProgramModal = (props) => {
     const { data, show } = props;
+    const [img, setImg] = useState('');
+
+    useEffect(() => {
+        getAllData((programs) => {
+            const programTv = (programs.filter((program) => program.nombre === data.title));
+            setImg(programTv[0].img);
+         }, 'tvprograms');
+    }, []);
+    console.log(img);
     return (
         <React.Fragment>
-            {/* <Header/> */}
-            {/* <a href='#modal' className="show-modal">Prueba para modal</a> */}
-                {/* <aside id="modal" className="modal"> */}
                 <aside className="pmodal">
                         <div className="content-pmodal">
-                            <img src={require('../Pages/styles/assets/programa.png')}/>
-                            <a href="#" className="close-pmodal" onClick ={ () => show(false)}>X</a>
+                            <img src={img} />
+                            <button className="close-pmodal" onClick ={ () => show(false)}>X</button>
                             <p>Programa Aplicado: {data.title}</p>
                         </div>
                 </aside>
