@@ -4,6 +4,7 @@ import './styles/Header.scss';
 import logo from '../Images/logo_forms.png';
 import 'firebase/firebase-auth'
 import {signOut} from '../firebase/auth'
+import user from './styles/assets/user.svg';
 
 const HeaderUserLogue = () => {
     return (
@@ -14,7 +15,7 @@ const HeaderUserLogue = () => {
             <div className='containerIniciarSesion'>
                 <section className='iniciarSesion'><p><Link className='linkHome' onClick={()=>{
                     signOut();
-                }} to={'/'}>Cerrar sesión</Link></p></section>
+                }} to={'/'}><img src={user}/>Cerrar sesión</Link></p></section>
             </div>
         </header>
     )

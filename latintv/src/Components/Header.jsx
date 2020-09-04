@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './styles/Header.scss';
 import logo from '../Images/logo_forms.png';
+import user from './styles/assets/user.svg';
 
 const Header = () => {
     return (

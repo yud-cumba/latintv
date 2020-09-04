@@ -11,18 +11,14 @@
     font-weight: bold;
     font-size:1.5em;
 }
-
 .pmodal {
     position: absolute;
     top: 373px;
     left: 466px;
     z-index: 99999999;
-    /* background: rgba(0, 0, 0, 0.75); */
     width: 100vh;
-    /* opacity: 0; */
     transition: opacity 0.35 ease;
 }
-
 .pmodal .content-pmodal {
     width: 100%;
     max-width: 500px;
@@ -40,16 +36,5 @@
     color:$orange;
 }
 .imageProgram{
-    width: 500px;
-    height: 250px;
+    @include definirAnchoAlto(500px, 250px);
 }
-
-// .pmodal:target{
-//     opacity:1;
-//     top:0;
-// }
-
-// // .pmodal:target .content-pmodal{
-// //     top:50px;
-// //     transition:top 0.35s ease;
-// // }

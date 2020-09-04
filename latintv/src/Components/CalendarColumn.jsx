@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Month from './Month'
 import {getAllData} from '../firebase/firestore'
 import './styles/CalendarColumn.scss';
+import logo from '../Images/logo_forms.png';
+import { Link } from "react-router-dom";
+import 'firebase/firebase-auth'
+import {signOut} from '../firebase/auth'
 
 const CalendarColumn = (props) => {
     const initPrice = {
@@ -93,7 +97,25 @@ const CalendarColumn = (props) => {
                             </tr>
                         </tbody>
                         </table>
-                    <a href='#' className="btn-salir">Salir</a>
+                    <a href='#modal-final' id="show-modal-final"className="btn-salir">Salir</a>
+                        <aside id="modal-final" className="modal-final">
+                            <div className="content-modal-final">
+                                <section className='logoModalFinal'>
+                                    <section className='containerModalFinal'>
+                                        <a href="#" className="close-modal-final final">X</a><br/>
+                                        <img className='' src={logo} alt=''/>
+                                    </section>
+                                    <section className='descriptionModalFinal'>
+                                        Tu reserva se ha 
+                                        realizado con éxito.
+                                        Gracias por anunciar 
+                                        con nosotros. 
+                                        
+                                    </section>
+                                    <section className='containerCloseModalFinal'><Link className='close-modal-final' onClick={()=>{signOut();}} to={'/'}>Salir</Link></section>
+                                </section> 
+                            </div>
+                        </aside>
                     </div>
             </div>
         </div>

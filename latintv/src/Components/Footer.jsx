@@ -10,7 +10,7 @@ const Footer = () => {
                 <p>Todos los derechos reservados<br/>Cadena peruana de Radiofusión S.A.</p>
             </div>
             <div className='divPoliticas'>
-                <p>
+                <p> 
                     Políticas de privacidad<br/>Términos y condiciones<br/>
                     Código de ética<br/>Línea ética
                 </p>

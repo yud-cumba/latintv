@@ -1,0 +1,41 @@
+@import '../../global-sass/estilosCompartidos';
+@import '../../global-sass/variables.scss';
+
+#btn-mas{
+    display:none;
+}
+.btn-mas1{
+    margin-left: 294px;
+    margin-top: 5px;
+}
+.btn-container{
+    position: fixed;
+    bottom: 6px;
+    right: 20px;
+}
+.icon-mas2{
+    @include definirAnchoAlto(55px, 55px);
+    @include definirColores($orange, $white);
+    display: block;
+    text-decoration:none;
+    line-height:55px;
+    text-align:center;
+    border-radius: 50%;
+    box-shadow:0px 1px 10px rgba(0,0,0,0.4);
+    transition: all 500ms ease;
+    cursor:pointer;
+}
+
+.icon-mas2 .bot-icon{
+    margin-top: 13px;
+}
+.redes a{
+    margin-bottom: -15px;
+    opacity:0;
+    visibility: hidden;
+}
+#btn-mas:checked~ .redes a{
+    margin-bottom: 10px;
+    opacity: 1;
+    visibility: visible;
+}

@@ -2,7 +2,6 @@
 @import '../../global-sass/variables.scss';
 
 .week-back{
-    width: 75vw;
-    height: 90vh;
+    @include definirAnchoAlto(75vw, 90vh);
     float: right;
 }

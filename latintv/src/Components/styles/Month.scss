@@ -1,8 +1,7 @@
 @import '../../global-sass/estilosCompartidos';
 @import '../../global-sass/variables.scss';
 .month-back{
-    background-color: $skyblue;
-    color:$white;
+    @include definirColores($skyblue, $white);
     max-width: 22vw;
     height: 30vh;
     margin: auto;

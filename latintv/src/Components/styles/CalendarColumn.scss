@@ -2,12 +2,10 @@
 @import '../../global-sass/variables.scss';
 
 .column{
-    height: 100%;
-    color:$white;
+    @include definirAnchoAlto(23%,100%);
+    @include definirColores($skyblue,$white );
     float:left;
-    background-color: $skyblue;
-    width: 23%;
-    height: 92vh;
+    // height: 92vh;
 }
 .table-second{
     margin: 5px;
@@ -34,11 +32,7 @@
     margin-top: 3px;
     margin-bottom: 0;
 }
-
-td{
-    background-color: #2a8eab;
-}
-
+td{background-color: $skyblue;}
 .normal-font{
     font-weight: normal;
 }
@@ -55,6 +49,65 @@ td{
     padding-right: 20px;
     margin-bottom: auto;
 }
-.rbc-event{
-    background-color: $orange;
+.rbc-event{background-color: $orange;}
+.modal-final{
+    display:contents;
+    position:fixed;
+    top:-100vh;
+    left:0;
+    z-index:99999999;
+    background: rgba(0,0,0,0.75);
+    width:100vw;
+    height:100vh;
+    opacity:0;
+    transition:opacity 0.35 ease;
 }
+.modal-final .content-modal-final{
+    width:100%;
+    max-width:500px;
+    position:fixed;
+    left:50%;
+    border-radius: 15px;
+    top:-100vh;
+    transition:top 0.35s ease;
+    margin-left: -250px;
+    background: $skyblue;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    z-index:9999999;
+}
+.modal-final article{
+    height: 300px;
+    background:$orange;
+}
+.close-modal-final{
+    @include definirColores($blue, $white);
+    top: 0.2em;
+    right:0.375em;
+    padding:1.5% 3% 1.5% 3%;
+    font-weight:bold;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 15px;
+}
+.final{ position:absolute; }
+.modal-final a:hover{ color:$orange; }
+.modal-final:target .content-modal-final{
+    top:50px;
+    transition: top 0.35s ease;
+}
+.content-modal-final{height: 50%;}
+.logoModalFinal{
+    @include definirAnchoAlto(80%, 100%);
+    @include definirColores($white,$blue);
+    font-weight:bold;
+    @include flexDirection(column);
+    margin-left: auto;
+    margin-right: auto;  
+}
+.containerModalFinal{
+    height: 40%;
+    margin-top: 3%;
+}
+.descriptionModalFinal{ height: 30%;}
+

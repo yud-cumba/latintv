@@ -6,7 +6,6 @@
 }
 .containerForm{
     @include definirAnchoAlto(35%, 70%);
-    // padding: 2%;
     background: $white;
     border-radius: 15px;
 }
@@ -41,36 +40,28 @@ form{
     height: 25%;
 }
 .loginSelect{
-    width: 200px;
-    height: 20px;
-    background: #d61e1e;
-    color: #DBDBDB;
+    @include definirAnchoAlto(200px, 20px);
+    @include definirColores(#d61e1e, #DBDBDB);
     border: 0;
 }
 .loginSelect:focus {
-        outline: none;
-    }
+    outline: none;
+}
 .selecFecha{
-    width: 80%;
-    height: 40%;
+    @include definirAnchoAlto(80%, 40%);
     @include flexDirection(row);
     justify-content: space-around;
 }
 .inputDate{
-    width: 100px;
-    height: 20px;
-    background-color: #DBDBDB;
-    color: $blue;
+    @include definirAnchoAlto(100px, 20px);
+    @include definirColores(#DBDBDB, $blue);
     border: 0;
 }
 .sectionBotones{
-    width: 100%;
-    height: 20%;
-    background: $blue;
-    color: $white;
+    @include definirAnchoAlto(100%, 20%);
+    @include definirColores($blue, $white);
     border-radius: 0 0 15px 15px;
-    display: flex;
-    justify-content: space-around;
+    @include justifyContent(space-around);
     align-items: center;
 }
 a:link, a:visited, a:active {
@@ -94,8 +85,7 @@ a:link, a:visited, a:active {
 .btnVerificarReservaForm:focus {outline: none;}
 .btnCancelarForm :focus {outline: none;}
 .autoComplete{
-    background: #F1EBEB;
-    color: $blue;
+    @include definirColores(#F1EBEB, $blue);
     margin: 3px;
     border-bottom: 1px solid #DBDBDB;
 }
