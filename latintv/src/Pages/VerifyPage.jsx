@@ -24,11 +24,16 @@ const  VerifyPage = prop => {
             .then((costo) => setCostos(costo));
     }, [])
     function reserveSpace (){
-        addReservedSpace(userId, programId,program, reservedHour.split(','), date)
+        addReservedSpace(userId, programId,program, reservedHour.split(','), date, costos.total)
         .then((data) => {
             addSpaceToUser(data.id, userId )
         });
-            history.push('/calendar');
+        const dateParts = date.split('-');
+        const datee = `${dateParts[1]}-${dateParts[0]}-${dateParts[2]}`
+        history.push({
+                    pathname: '/calendar',
+                    state: { datee },
+               })
     }
 
 

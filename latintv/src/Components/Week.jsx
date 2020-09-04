@@ -8,10 +8,13 @@ require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
 export default function Week(props) {
-    const { show, data } = props;
+    const { show, data, week } = props;
+    // let history = useHistory();
     const userId = 'A27rshHeq0eZGB7aJZnB';
     const [events, setEvents] = useState([]);
+    const [change, setChange] = useState(false);
     useEffect(() => {
+        week( document.getElementsByClassName('rbc-toolbar-label')[1].textContent);
         getUser(userId)
             .then((user) =>  user.reservedSpacesId)
             .then((arrayIds) => 
@@ -29,31 +32,38 @@ export default function Week(props) {
             }}))
             .then((array) => setEvents(array))
             
-    },[])
+    },[change])
+    const calendarDay = (props.location && props.location.state) || new Date();
     return (
         <div className="week-back">
              <Calendar
-                localizer={localizer}
-                events={events}
-                titleAccessor='titulo'
-                startAccessor="start"
-                endAccessor="end"
-                defaultView={Views.WEEK}
-                onSelectEvent={(event, e) => {
-                    show(true);
-                    data(event);
-                    }}
-                views={['month','week']}
-                popup
-                messages={{
-                    next: "sig",
-                    previous: "ant",
-                    today: "Hoy",
-                    month: "Mes",
-                    week: "Semana",
-                    day: "Día"
-                }}
-            />
+      localizer={localizer}
+      events={events}
+      titleAccessor='titulo'
+      startAccessor= 'start'
+      endAccessor="end"
+      defaultView={Views.WEEK}
+      onNavigate={() => setChange(!change)}
+      onView={() => console.log('cambio de vista')}
+      onDrillDown={() => console.log('date header click semanal')}
+      onRangeChange={(e) => console.log(e)}
+      onSelectEvent={(event, e) => {
+          show(true);
+          data(event);
+        }} //clickea datos del select event
+      onDoubleClickEvent={(event, e) => console.log('click 2 veces',event)}
+      views={['month','week']}
+      popup
+      getNow={() => calendarDay}
+      messages={{
+        next: "Sig",
+        previous: "Ant",
+        today: "Hoy",
+        month: "Mes",
+        week: "Semana",
+        day: "Día"
+      }}
+    />
         </div>
     )
 }

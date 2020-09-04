@@ -36,12 +36,13 @@ export const getReservedSpace = (id) => db.collection('reservedSpaces').doc(id)
   return doc.data();
 });
 
-export const addReservedSpace = (userId, programId, programName, reservedHour, date) => db.collection('reservedSpaces').add({
+export const addReservedSpace = (userId, programId, programName, reservedHour, date, price) => db.collection('reservedSpaces').add({
   userId,
   programId,
   programName,
   reservedHour,
   date,
+  price,
 });
 
 export const updateData = (collection, docId, field, value) => db.collection(collection).doc(docId).update({
