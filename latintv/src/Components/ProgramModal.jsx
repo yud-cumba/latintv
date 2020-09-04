@@ -17,7 +17,7 @@ const ProgramModal = (props) => {
         <React.Fragment>
                 <aside className="pmodal">
                         <div className="content-pmodal">
-                            <img src={img} className='imageProgram' alt='programModal' />
+                            <img src={img} className='imageProgram' />
                             <button className="close-pmodal" onClick ={ () => show(false)}>X</button>
                             <p>Programa Aplicado: {data.title}</p>
                         </div>

@@ -15,6 +15,7 @@ const ReservedForm = (props) =>  {
     const { data } = props
     const [ newSpace , setNewSpace] = useState(data);
     const [programId, setProgramId] =useState('');
+    // const [dafaultDate, setDefaultDate] = useState({date:newDate(), hours:''});
     const [availableHours, setAvailableHours] = useState([]);
     const [availableDays, setAvailableDays] = useState([]);
     const [allPrograms, setAllPrograms] = useState([]);
@@ -31,6 +32,7 @@ const ReservedForm = (props) =>  {
             const programTv = programs.filter((program) => program.nombre === newSpace.program);
             const programTvId = (programTv.length>0)? programTv[0].id : 0;
             const days = (programTv.length>0)? programTv[0].dias : ['lunes'];
+
             setAvailableDays(days);
             const horario = (programTv.length>0)? programTv[0].horario : [0,1];
             setAvailableHours(hourIntervales(horario));
@@ -92,7 +94,7 @@ const ReservedForm = (props) =>  {
                         </InputCalendar>
                     </div>
                     <div>
-                        <select name="reservedHour" className='inputDate' value={data.reservedHour} onChange={handleInputChange}>
+                        <select name="reservedHour" className='inputDate' value={newSpace.reservedHour} onChange={handleInputChange} required>
                             {availableHours.map((hours, i) => <option key={`${i}-${hours}`} value={hours}>
                                 {`(${hours[0]}-${hours[1]})`}
                             </option>)}

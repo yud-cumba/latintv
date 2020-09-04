@@ -63,7 +63,7 @@ const  VerifyPage = prop => {
                     <div className="modal-footer">
                         <Link className='btnVerificarReserva'
                             to={{
-                                pathname: "/calendar",
+                                pathname: "/reserva",
                                 state: {program, product},
                             }}
                         >Editar Reserva</Link> 

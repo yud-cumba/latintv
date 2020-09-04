@@ -8,27 +8,27 @@ import 'firebase/firebase-auth'
 import {signOut} from '../firebase/auth'
 
 const CalendarColumn = (props) => {
-    const initPrice = {
-        L: {cant : '-', monto: '-'},
-        M: {cant : '-', monto: '-'},
-        Mi: {cant : '-', monto: '-'},
-        J: {cant : '-', monto: '-'},
-        V: {cant : '-', monto: '-'},
-        S: {cant : '-', monto: '-'},
-        D: {cant : '-', monto: '-'},
-    }
-    const [ price, setPrice] = useState(initPrice);
+    // const initPrice = {
+    //     L: {cant : '-', monto: '-'},
+    //     M: {cant : '-', monto: '-'},
+    //     Mi: {cant : '-', monto: '-'},
+    //     J: {cant : '-', monto: '-'},
+    //     V: {cant : '-', monto: '-'},
+    //     S: {cant : '-', monto: '-'},
+    //     D: {cant : '-', monto: '-'},
+    // }
+    // const [ price, setPrice] = useState(initPrice);
 
-    useEffect(() => {
-        getAllData((spaces) => {
-            const spaceDates = spaces.map((space) => {
-                const dateParts = (space.date).split('-');
-                const date = `${dateParts[1]}-${dateParts[0]}-${dateParts[2]}`
-                return (new Date(date)).getTime();
-            })
-            console.log(spaceDates);
-         }, 'reservedSpaces');
-    }, []);
+    // useEffect(() => {
+    //     getAllData((spaces) => {
+    //         const spaceDates = spaces.map((space) => {
+    //             const dateParts = (space.date).split('-');
+    //             const date = `${dateParts[1]}-${dateParts[0]}-${dateParts[2]}`
+    //             return (new Date(date)).getTime();
+    //         })
+    //         console.log(spaceDates);
+    //      }, 'reservedSpaces');
+    // }, []);
     const { week } = props;
     return (
         <div className="column">
