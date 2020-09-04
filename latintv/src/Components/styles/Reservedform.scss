@@ -5,7 +5,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 .containerForm{
-    @include definirAnchoAlto(35%, 60%);
+    @include definirAnchoAlto(35%, 70%);
     // padding: 2%;
     background: $white;
     border-radius: 15px;
@@ -20,10 +20,7 @@
 }
 .containerLogoForm{
     width: auto;
-    background: $orange;
-    font-size: 1.2rem;
     @include justifyContent(center);
-    padding: 1%;
     margin-bottom: 2%;
 }
 form{
@@ -46,11 +43,13 @@ form{
 .loginSelect{
     width: 200px;
     height: 20px;
-    background-color: #DBDBDB;
-    color: #898686;
+    background: #d61e1e;
+    color: #DBDBDB;
     border: 0;
-    border-width: THIN;
 }
+.loginSelect:focus {
+        outline: none;
+    }
 .selecFecha{
     width: 80%;
     height: 40%;
@@ -90,4 +89,7 @@ a:link, a:visited, a:active {
     font-size: 1rem;
     border-radius: 15px;
     text-align: center;
+}
+.inputDate, .btnVerificarReserva, .btnCancelar :focus {
+    outline: none;
 }

@@ -1,5 +1,6 @@
 import  React, { useState, useEffect } from 'react';
 import ReactAutocomplete from 'react-autocomplete'
+import './styles/Reservedform.scss'
 
 export default function InputPredictive(props) {
     const initValue = props.value || '';

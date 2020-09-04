@@ -3,6 +3,7 @@ import Header from '../Components/Header';
 import './styles/Login.scss'
 import { signIn } from '../firebase/auth';
 import { useHistory } from 'react-router-dom';
+import logo from '../Images/logo_forms.png';
 
 const Login = () => {
   let history = useHistory();
@@ -12,12 +13,14 @@ const Login = () => {
   const loginSubmit = (event) => {
       event.preventDefault();
   };
-  return(<body className="background-login">
+  return(
+    <div className="background-login">
       <Header/>
       <div className="login">
         <div className="login-header"> 
-          <h4 className='miniLogo'>LATIN TV</h4>
-          <h3>Anuncia con nosotros</h3>
+          <section className='miniLogo'><img className='logoLatinTv' src ={logo} alt="Logo Latin TV"/></section>
+          <span className='anuncia'>Anuncia con nosotros</span>
+          <span className='area'>Área comercial</span>
         </div>
             <form className='login-form' onSubmit={loginSubmit}>
               <p>Ingresa tu correo electrónico</p>
@@ -40,7 +43,7 @@ const Login = () => {
           <p>¿No tienes una cuenta?<a href='#'>Registrate</a></p>
           </div>
       </div>
-    </body>
+    </div>
   )};
 
 export default Login;

@@ -3,11 +3,16 @@
 *{
     font-family: 'Open Sans', sans-serif;
 }
-
+html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+  }
 .background-login{
     background-image:url(../styles/assets/1.png);
-    width:100vw;
-    height:100vh;
+    width:100%;
+    height:100%;
     background-size: cover;
     background-position: top;
     background-repeat: round;
@@ -40,29 +45,36 @@
 
 .login{
     background-color: $white;
-    width: 400px;
+    width: 30%;
     margin-top: 70px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 20px;
     box-sizing: border-box;
 }
-
-.miniLogo{
-    margin: auto;
-    width: 100px;
-    background-color: $orange;
-};
 .login-header{
     box-sizing: border-box;
     background-color: $blue;
-    width: 400px;
+    width: 100%;
     padding-top: 30px;
     padding-bottom: 1px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     color: $white;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.miniLogo{
+    margin: auto;
+    width: 100px;
+};
+.anuncia{
+    font-size: 1rem;
+}
+.area{
+    font-size: 0.6rem;
+    margin-bottom: 2%;
 }
 .login-form{
     box-sizing: border-box;
@@ -71,9 +83,15 @@
     text-align: center;
 }
 .login-select{
+    height: 30px;
     width: 200px;
-    background-color: $white;
+    background-color: #C4C4C4;
+    color: #898686;;
     border-width: THIN;
+    border: 0;
+}
+.login-select:focus {
+    outline: none;
 }
 .login-button{
     color:$white;
@@ -88,6 +106,10 @@
     margin-left: 54px;
     margin-right: 54px;
     margin-top: 20px;
+    border: 0;
+}
+.login-button:focus {
+    outline: none;
 }
 .login-register{
     font-size: 12px;

@@ -1,5 +1,5 @@
 import React , {useState }from 'react'
-import Header from '../Components/Header'
+import HeaderUserLogue from '../Components/HeaderUserLogue'
 import Week from '../Components/Week'
 import CalendarColumn from '../Components/CalendarColumn'
 import ProgramModal from '../Components/ProgramModal'
@@ -11,7 +11,7 @@ export default function Calendar() {
     const [data, setData] = useState({});
     return (
         <div>
-            <Header/>
+            <HeaderUserLogue/>
             {showModal && <ProgramModal data={data} show = {(show) => setShowModal(show)}/>}
             <CalendarColumn/>
             <Week show={(show) => setShowModal(show)} data={(data) => setData(data)}/>
