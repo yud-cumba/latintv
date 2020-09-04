@@ -9,13 +9,14 @@ import './styles/Calendar.scss'
 export default function Calendar() {
     const [showModal, setShowModal] = useState(false);
     const [data, setData] = useState({});
+    const [week, setWeek ] = useState('');
     return (
         <div>
             <HeaderUserLogue/>
             <div className="calendar-body">
-                    <CalendarColumn/>
+                    <CalendarColumn week={week}/>
                     {showModal && <ProgramModal data={data} show = {(show) => setShowModal(show)}/>}
-                    <Week show={(show) => setShowModal(show)} data={(data) => setData(data)}/>
+                    <Week week={(w) => setWeek(w)} show={(show) => setShowModal(show)} data={(data) => setData(data)}/>
             </div>
         </div>
     )

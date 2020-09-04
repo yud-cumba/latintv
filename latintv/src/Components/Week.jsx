@@ -13,12 +13,13 @@ const localizer = momentLocalizer(moment);
 //array de eventos
   
 export default function Week(props) {
-    const { show, data } = props;
+    const { show, data, week } = props;
     // let history = useHistory();
     const userId = 'A27rshHeq0eZGB7aJZnB';
     const [events, setEvents] = useState([]);
-    console.log(events);
+    const [change, setChange] = useState(false);
     useEffect(() => {
+        week( document.getElementsByClassName('rbc-toolbar-label')[1].textContent);
         getUser(userId)
             .then((user) =>  user.reservedSpacesId)
             .then((arrayIds) => 
@@ -36,22 +37,21 @@ export default function Week(props) {
             }}))
             .then((array) => setEvents(array))
             
-    },[])
-    events.map((e) => console.log(e.start));
-    console.log(localizer);
+    },[change])
+    const calendarDay = (props.location && props.location.state) || new Date();
     return (
         <div className="week-back">
              <Calendar
       localizer={localizer}
       events={events}
       titleAccessor='titulo'
-      startAccessor="start"
+      startAccessor= 'start'
       endAccessor="end"
       defaultView={Views.WEEK}
-      onNavigate={() => console.log('data change ()next, prev')}
+      onNavigate={() => setChange(!change)}
       onView={() => console.log('cambio de vista')}
       onDrillDown={() => console.log('date header click semanal')}
-      onRangeChange={() => console.log('cambio rango')}
+      onRangeChange={(e) => console.log(e)}
       onSelectEvent={(event, e) => {
           show(true);
           data(event);
@@ -59,9 +59,10 @@ export default function Week(props) {
       onDoubleClickEvent={(event, e) => console.log('click 2 veces',event)}
       views={['month','week']}
       popup
+      getNow={() => calendarDay}
       messages={{
-        next: "sig",
-        previous: "ant",
+        next: "Sig",
+        previous: "Ant",
         today: "Hoy",
         month: "Mes",
         week: "Semana",

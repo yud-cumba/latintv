@@ -15,7 +15,6 @@ const localizer = momentLocalizer(moment);
 export default function Month() {
   const userId = 'A27rshHeq0eZGB7aJZnB';
     const [events, setEvents] = useState([]);
-    console.log(events);
     useEffect(() => {
         getUser(userId)
             .then((user) =>  user.reservedSpacesId)
