@@ -21,11 +21,11 @@ const ReservedForm = (props) =>  {
     const { data } = props
     console.log(data);
     const [ newSpace , setNewSpace] = useState(data);
-    const [programId, setProgramId] =useState('');
-    const [availableHours, setAvailableHours] = useState([]);
-    const [availableDays, setAvailableDays] = useState([]);
-    const [allPrograms, setAllPrograms] = useState([]);
-    const [allProducts, setAllProducts] = useState([]);
+   const [programId, setProgramId] =useState('');
+   const [availableHours, setAvailableHours] = useState([]);
+   const [availableDays, setAvailableDays] = useState([]);
+   const [allPrograms, setAllPrograms] = useState([]);
+   const [allProducts, setAllProducts] = useState([]);
 
     useEffect(() => {
         // firebase.auth().onAuthStateChanged((user) => {
